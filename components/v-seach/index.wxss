@@ -1,0 +1,14 @@
+/* components/v-seach/index.wxss */
+.v_seach{
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  color: #999;
+  line-height: 70rpx;
+}
+.seach{
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30rpx;
+  padding: 0 20rpx;
+}

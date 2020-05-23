@@ -1,0 +1,25 @@
+<!--components/swiper.wxml-->
+<view class="allAdvers">
+  <view class="swipeds">
+    <swiper indicator-dots autoplay interval="3000" duration="800"  circular indicator-color='#d0cdd1' indicator-active-color='#ffffff' style="height:{{height}}rpx;">
+      <block wx:for="{{banner}}" wx:key="index" data-link="{{item.url}}">
+        <swiper-item>
+          <view class="imgItem">
+            <image src="{{item}}" data-item="{{item}}" bindtap='goType' mode="widthFix"/>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <van-notice-bar
+  wx:if="{{notice}}"
+  left-icon="bullhorn-o"
+  speed="30"
+  backgroundColor="#f5dff2"
+  text="{{notice}}"
+/>
+  <view wx:for="{{advers}}" wx:key="index" wx:if="advers.length>0" class="advers">
+    <image src="{{item.image}}" lazy-load mode="widthFix" style="display:block;width:100%;" data-item="{{item}}" bindtap='goType'></image>
+  </view>
+  </view>
+  <!-- <view>{{myBehaviorData}}</view> -->

@@ -1,0 +1,17 @@
+/* components/swiper.wxss */
+.swipeds .imgItem{
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.swipeds image{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.advers{
+  padding: 10rpx 0;
+  /* background-color: #F7F7F7; */
+}

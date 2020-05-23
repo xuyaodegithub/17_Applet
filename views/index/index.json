@@ -1,0 +1,15 @@
+{
+  "component": false,
+  "usingComponents": {
+    "van-field": "@vant/weapp/field",
+    "c_swiper": "/components/swiper/swiper"
+  },
+  "navigationBarTitleText": "首页",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#eee",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
+  "disableScroll": false
+}

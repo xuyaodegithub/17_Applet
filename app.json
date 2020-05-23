@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "views/index/index",
+    "views/shopcar/index",
+    "views/my/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "一起火",
+    "backgroundColor": "#eee",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
+  },
+  "subpackages": [
+    {
+      "root": "userViews",
+      "pages": [
+       
+      ]
+    }
+  ],
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#A3A3A3",
+    "selectedColor": "#b519ed",
+    "list": [
+      {
+        "pagePath": "views/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index2.png"
+      },
+      {
+        "pagePath": "views/shopcar/index",
+        "text": "购物车",
+        "iconPath": "images/shopcar.png",
+        "selectedIconPath": "images/shopcar2.png"
+      },
+      {
+        "pagePath": "views/my/index",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my2.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon",
+    "van-sticky": "@vant/weapp/sticky",
+    "van-popup": "@vant/weapp/popup",
+    "van-button": "@vant/weapp/button"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请求获取您的位置信息!"
+    }
+  }
+}

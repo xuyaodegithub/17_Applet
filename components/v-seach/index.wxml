@@ -1,0 +1,8 @@
+<!--components/v-seach/index.wxml-->
+<view class="v_seach">
+  <view class="seach" bindtap="toseach">
+    <van-icon name="search" custom-style="font-size:32rpx;margin-right:20rpx;" />
+    {{placehold}}
+  </view>
+</view>
+
