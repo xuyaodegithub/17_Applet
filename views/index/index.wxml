@@ -1,2 +1,43 @@
 <!--views/index/index.wxml-->
-<text>views/index/index.wxml</text>
+<van-search value="{{ value }}" placeholder="请输入搜索关键词" shape="round" clearable bind:search="seach" background="#fff" />
+<view class="banner" bindtap="goserviceDes">
+  <image src="http://m.17huo.com/public/images/i_banner.png" mode="widthFix"></image>
+  <view class="h1">服装店主批发货源</view>
+  <view class="flex j-c">
+    <van-icon name="passed" />
+    <text>天天上新</text>
+    <van-icon name="passed" />
+    <text>杭州广州一批市场</text>
+    <van-icon name="passed" />
+    <text>10天包退</text>
+    <van-icon name="passed" />
+    <text>一件起批</text>
+  </view>
+</view>
+<van-grid column-num="4" border="{{ false }}" clickable>
+  <van-grid-item use-slot wx:for="{{ gridList }}" url="{{item.url}}" wx:key="url">
+    <image src="{{item.img}}" mode="widthFix" />
+    <text>{{item.text}}</text>
+  </van-grid-item>
+</van-grid>
+<van-grid column-num="2" clickable>
+  <van-grid-item use-slot wx:for="{{ shortList }}" url="{{item.url}}" wx:key="url">
+    <view class="title {{!index ? 'bule' : 'red'}}">{{item.title}}
+      <text>{{item.tag}} ></text>
+    </view>
+    <view class="flex j-b videos">
+      <view wx:for="{{item.imgs}}" wx:for-item="itemson" wx:key="itemson" class="items">
+        <image src="{{itemson}}" mode="widthFix"></image>
+        <image src="http://m.17huo.com/public/images/plays.png" mode="widthFix" class="play"></image>
+      </view>
+    </view>
+  </van-grid-item>
+</van-grid>
+<van-sticky>
+  <van-tabs active="{{active}}" sticky bind:change="changes" tab-active-class="tabActive te">
+    <van-tab title="好货推荐" name="recommand"></van-tab>
+    <van-tab title="最新商品" name="newproducts"></van-tab>
+    <van-tab title="爆款商品" name="baokuan"></van-tab>
+  </van-tabs>
+</van-sticky>
+<card-list list="{{list}}" id="list"></card-list>

@@ -14,7 +14,33 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-
+const uerCode = (that, code)=>{
+  wx.request({
+    url: that.baseUrl + '/weapp/User/loginByCode',
+    data: {code:code},
+    dataType: 'json',
+    method:'GET',
+    header: {
+      'content-type': 'application/json',
+      // 'token': app.token
+      // 'cookie': wx.getStorageSync("sessionid")//读取cookie
+    },
+    success: function (res) {
+      if (!res.data.code) {
+        that.token = res.data.data.weapp_token;
+        if (that.loginInfoCallback) that.loginInfoCallback(res.data.data.weapp_token);
+      }else wx.showToast({ title: res.data.msg, icon: 'none' });
+    },
+    fail: function (res) {
+      wx.showToast({
+        title: '请求错误',
+        icon: 'none',
+        duration: 2000
+      });
+    }
+  })
+}
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  uerCode
 }

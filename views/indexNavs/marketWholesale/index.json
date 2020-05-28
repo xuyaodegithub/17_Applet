@@ -1,0 +1,14 @@
+{
+  "component": false,
+  "usingComponents": {
+    "top-mune": "/components/topMune/index"
+  },
+  "navigationBarTitleText": "批发市场",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#eee",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
+  "disableScroll": false
+}

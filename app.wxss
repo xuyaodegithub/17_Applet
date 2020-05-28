@@ -1,10 +1,16 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+@import './style/public.wxss';
+@import './style/index.wxss';
+@import './miniprogram_npm/@vant/weapp/common/index.wxss';
+page{
+  background-color: #f5f5f5;
+}
+.rd{
+  color: #D3242B;
+}
+.bc{
+  background-color: #fff;
+}
+.tabActive.te{
+  color: #ce2b31;
+}

@@ -1,0 +1,13 @@
+<view class="list">
+  <view class="item flex" wx:for="{{list}}" wx:key="id" bindtap="toDetail" data-id="{{item.id}}">
+    <view class="overImg">
+      <image src="{{item.headurl}}" mode="widthFix"></image>
+      <image src="http://m.17huo.com/public/images/plays.png" mode="widthFix" class="play" wx:if="{{item.video}}"></image>
+    </view>
+    <view class="right">
+      <view class="name over">{{item.name}}</view>
+      <view class="marketname over">{{item.marketname}}</view>
+      <view class="price rd">￥{{item.price}}</view>
+    </view>
+  </view>
+</view>

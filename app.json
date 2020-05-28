@@ -2,7 +2,15 @@
   "pages": [
     "views/index/index",
     "views/shopcar/index",
-    "views/my/index"
+    "views/my/index",
+    "views/indexNavs/menWear/index",
+    "views/indexNavs/womenWear/index",
+    "views/indexNavs/dayNew/index",
+    "views/indexNavs/marketWholesale/index",
+    "views/indexNavs/serviceDes/index",
+    "views/indexNavs/menVideos/index",
+    "views/indexNavs/womenVideos/index",
+    "views/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,7 +25,9 @@
     {
       "root": "userViews",
       "pages": [
-       
+        "orderList/index",
+        "addressList/index",
+        "login/index"
       ]
     }
   ],
@@ -25,7 +35,7 @@
     "backgroundColor": "#fff",
     "borderStyle": "black",
     "color": "#A3A3A3",
-    "selectedColor": "#b519ed",
+    "selectedColor": "#C2202D",
     "list": [
       {
         "pagePath": "views/index/index",
@@ -51,7 +61,10 @@
     "van-icon": "@vant/weapp/icon",
     "van-sticky": "@vant/weapp/sticky",
     "van-popup": "@vant/weapp/popup",
-    "van-button": "@vant/weapp/button"
+    "van-button": "@vant/weapp/button",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-search": "@vant/weapp/search/index"
   },
   "sitemapLocation": "sitemap.json",
   "permission": {

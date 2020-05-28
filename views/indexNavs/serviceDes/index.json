@@ -1,0 +1,12 @@
+{
+  "component": false,
+  "usingComponents": {},
+  "navigationBarTitleText": "服装批发-一起火",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#eee",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
+  "disableScroll": false
+}

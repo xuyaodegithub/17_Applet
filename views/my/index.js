@@ -1,3 +1,4 @@
+const app=getApp()
 // views/my/index.js
 Page({
 
@@ -5,14 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -26,7 +27,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // app.getUserInfo((info) => {
+    //   this.setData({
+    //     userInfo: info
+    //   })
+    // })
   },
 
   /**

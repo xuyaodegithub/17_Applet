@@ -5,21 +5,26 @@
 //   'content-type': 'application/x-www-form-urlencoded' // 默认值
 // },
 const app = getApp()
-function fetch(data) {
-  return new Promise((resole,reject)=>{
+function beforRqs(data){
+  return new Promise((resole, reject) => {
+    if (app.token) fetch(data, app.token, resole, reject);
+    else app.loginInfoCallback = (token) => fetch(data, token, resole, reject);
+  })
+}
+function fetch(data, token, resole, reject) {
     wx.request({
       url: app.baseUrl + data.url,
       data: data.data,
       dataType: 'json',
       method: data.type ? data.type : 'GET',
       header: {
-        'content-type': 'application/json',
-        // 'token': app.token
+        // 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'weapp_token': token
         // 'cookie': wx.getStorageSync("sessionid")//读取cookie
       },
       success: function (res) {
         // console.log(res.statusCode)
-        if (res.data.code == 0) resole(res.data)
+        if (!res.data.code) resole(res.data)
         else {
           wx.showToast({ title: res.data.msg, icon: 'none' });
           reject(res)
@@ -33,9 +38,7 @@ function fetch(data) {
         });
         reject(res)
       }
-    })
   })
- 
 }
 // function mothod3(data) {
 //   wx.request({
@@ -142,5 +145,5 @@ function fetch(data) {
 //   }
 
 module.exports = {
-  fetch,
+  beforRqs
 } 

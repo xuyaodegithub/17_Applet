@@ -1,0 +1,4 @@
+<view class="logo">
+  <image src="http://m.17huo.com/public/images/newLogo.png" mode="widthFix"></image>
+</view>
+<van-button custom-class="logins" round block open-type="getUserInfo" bind:getuserinfo="userInfo" color="linear-gradient(to right, #2ee7a4,#31c19d)">微信用户一键登录</van-button>

@@ -1,0 +1,43 @@
+/* components/cardList/index.wxss */
+.list .play{
+  width: 50rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.list{
+  font-size: 24rpx;
+  color: #333;
+  line-height: 1;
+  padding: 35rpx 15rpx 0;
+}
+.listItem{
+  width: 340rpx;
+  margin: 0 10rpx 30rpx;
+  padding-bottom: 30rpx;
+  background-color: #fff;
+}
+.listItem .imgs{
+  position: relative;
+  height: 340rpx;
+  overflow: hidden;
+}
+.listItem .imgs image{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%)
+}
+.listItem .imgs .play{
+  width: 90rpx;
+}
+.listItem .over{
+  padding: 20rpx 20rpx 25rpx;
+}
+.listItem .price{
+  font-size: 34rpx;
+  color: #ce2b31;
+  padding: 0 20rpx;
+}

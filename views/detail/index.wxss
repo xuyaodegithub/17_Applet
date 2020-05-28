@@ -1,0 +1,185 @@
+/* views/detail/index.wxss */
+
+.des {
+  padding: 40rpx 30rpx;
+  margin-bottom: 25rpx;
+  line-height: 1;
+}
+
+.des .pricd {
+  font-size: 46rpx;
+  margin-bottom: 30rpx;
+}
+
+.des .name {
+  font-size: 30rpx;
+  line-height: 44rpx;
+  color: #333;
+  margin-bottom: 32rpx;
+  font-weight: bold;
+}
+
+.des .flex {
+  font-size: 26rpx;
+  color: #9c9c9c;
+}
+
+.tags {
+  font-size: 26rpx;
+  padding: 40rpx 28rpx;
+  text-align: center;
+  line-height: 1;
+}
+
+.tags text {
+  display: inline-block;
+  margin: 0 12rpx;
+}
+
+.tags view, .select view {
+  margin-left: auto;
+}
+
+.select {
+  padding: 30rpx 35rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 25rpx;
+  line-height: 1;
+}
+
+.shop {
+  padding: 40rpx 30rpx;
+  margin-bottom: 25rpx;
+  font-size: 30rpx;
+  line-height: 1;
+}
+
+.shop .title {
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+
+.shop text {
+  display: inline-block;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  padding: 0 20rpx;
+  border-radius: 20rpx;
+  color: #fff;
+  background-color: #ef4138;
+}
+
+.shop text:last-child {
+  margin-left: 20rpx;
+  background-color: #f88700;
+}
+.guss{
+  padding: 40rpx 30rpx;
+  line-height: 1;
+}
+.gassT{
+  font-size: 30rpx;
+  margin-bottom: 38rpx;
+}
+.gItem{
+  width: 250rpx;
+  margin-right: 22rpx;
+}
+.gItem .imgs{
+  position: relative;
+  height: 250rpx;
+  width: 100%;
+  overflow: hidden;
+}
+.gItem .imgs image{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%)
+}
+.gItem .name{
+  font-size: 26rpx;
+  margin: 26rpx 0 20rpx;
+}
+.gItem .price{
+  font-size: 32rpx;
+}
+.scroll-view_H{
+  display: flex;
+  align-items: center
+}
+rich-text img{
+  display: block;
+  width: 100%;
+}
+.buy{
+  padding:24rpx 24rpx 40rpx;
+}
+.buy .imgss{
+  position: relative;
+  width: 180rpx;
+  height:180rpx;
+  overflow: hidden;
+  margin-right: 30rpx;
+}
+.buy .imgss image{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%)
+}
+.buy .header{
+  padding-bottom: 30rpx;
+}
+.buy .header .msg{
+  font-size: 26rpx;
+  color: #333;
+  line-height: 1;
+  align-self: flex-end;
+}
+.buy .header .msg .rd{
+  font-size: 40rpx;
+  margin-bottom: 30rpx;
+}
+.skuInfo{
+  max-height: 500rpx;
+  overflow-y: scroll;
+  font-size: 26rpx;
+  color: #333;
+}
+.s_ku{
+  padding: 30rpx 0 10rpx;
+}
+.s_name{
+  margin-bottom: 30rpx;
+  line-height: 34rpx;
+}
+.s_color{
+  padding-bottom: 10rpx;
+}
+.s_color .van-tag{
+  color: #999;
+  border-color: #999;
+  margin: 0 10rpx 20rpx;
+}
+.s_size{
+  padding: 0 10rpx;
+}
+.s_size .j-b{
+  margin-bottom: 20rpx;
+}
+.total{
+  justify-content: flex-end;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  color: #333;
+  margin-bottom: 30rpx;
+  padding-right: 20rpx;
+}
+.total .rd{
+  font-size: 36rpx;
+  margin-left: 40rpx;
+}

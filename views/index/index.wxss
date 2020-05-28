@@ -1,1 +1,138 @@
 /* views/index/index.wxss */
+
+page {
+  background-color: #f5f5f5;
+}
+
+.banner {
+  padding: 20rpx 24rpx 0;
+  background-color: #fff;
+  position: relative;
+  text-align: center;
+}
+
+.banner image {
+  display: block;
+  width: 100%;
+}
+
+.banner .h1 {
+  text-align: center;
+  position: absolute;
+  font-size: 54rpx;
+  font-weight: bold;
+  top: 100rpx;
+  left: 0;
+  color: #fff;
+  width: 100%;
+}
+
+.banner .flex {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  line-height: 48rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.banner .flex .van-icon {
+  font-size: 25rpx;
+  margin: 0 6rpx 0 14rpx;
+}
+
+.van-grid image {
+  width: 100rpx;
+  margin-bottom: 30rpx;
+}
+
+.van-grid {
+  font-size: 26rpx;
+  line-height: 1;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: bold;
+  line-height: 36rpx;
+  margin-bottom: 34rpx;
+}
+
+.title text {
+  vertical-align: center;
+  display: inline-block;
+  padding: 0 10rpx;
+  border: 1px solid #333;
+  font-size: 26rpx;
+  border-radius: 18rpx;
+  margin-left: 20rpx;
+}
+
+.title.bule text {
+  color: #f72f6c;
+  border-color: #f72f6c;
+}
+
+.title.red text {
+  color: #2f9afc;
+  border-color: #2f9afc;
+}
+
+.videos .items{
+  position: relative;
+  margin: 0 10rpx;
+}
+
+.videos image {
+  width: 150rpx;
+  margin: 0 auto;
+}
+
+.videos .play ,.list .play{
+  width: 50rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.tabActive.te{
+  color: #f72f6c;
+}
+.list{
+  font-size: 24rpx;
+  color: #333;
+  line-height: 1;
+  padding: 35rpx 15rpx 0;
+}
+.listItem{
+  width: 340rpx;
+  margin: 0 10rpx 30rpx;
+  padding-bottom: 30rpx;
+  background-color: #fff;
+}
+.listItem .imgs{
+  position: relative;
+  height: 340rpx;
+  overflow: hidden;
+}
+.listItem .imgs image{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%)
+}
+.listItem .imgs .play{
+  width: 90rpx;
+}
+.listItem .over{
+  padding: 20rpx 20rpx 25rpx;
+}
+.listItem .price{
+  font-size: 34rpx;
+  color: #ce2b31;
+  padding: 0 20rpx;
+}

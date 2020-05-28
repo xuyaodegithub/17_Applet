@@ -2,7 +2,9 @@
   "component": false,
   "usingComponents": {
     "van-field": "@vant/weapp/field",
-    "c_swiper": "/components/swiper/swiper"
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "card-list":"/components/cardList/index"
   },
   "navigationBarTitleText": "首页",
   "navigationBarBackgroundColor": "#fff",

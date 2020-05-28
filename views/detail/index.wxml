@@ -1,0 +1,98 @@
+<!-- 这里不能使用绝对路径，只能使用先对路径 -->
+<wxs src="../../filters/filters.wxs" module="filters" />
+<v-swiper banner="{{banners}}" videos="{{videos}}" height="{{750}}"></v-swiper>
+<view class="des bc">
+  <view class="pricd rd">￥65.00</view>
+  <view class="name van-multi-ellipsis--l2">2017加大码胖子外贸欧美男士牛仔夹克外套男衣服1698-J308-P65</view>
+  <view class="flex j-b">
+    <text>1698-J308-P65</text>
+    <text>2017-12-25</text>
+    <text>杭州</text>
+  </view>
+</view>
+<view class="tags bc flex j-c a-i van-hairline--bottom">
+  <van-icon name="passed" color="#D3242B" />
+  <text>每日新款</text>
+  <van-icon name="passed" color="#D3242B" />
+  <text>一手货源</text>
+  <van-icon name="passed" color="#D3242B" />
+  <text>多赚30%+</text>
+  <van-icon name="passed" color="#D3242B" />
+  <text>10天包退</text>
+  <view>
+    <van-icon name="arrow" color="#999" />
+  </view>
+</view>
+<view class="select bc flex j-c a-i ">
+  <text>请选择：颜色、尺码</text>
+  <view>
+    <van-icon name="arrow" color="#999" />
+  </view>
+</view>
+<view class="shop flex j-b a-i bc">
+  <view>
+    <view class="title">四季星座1608-1</view>
+    <view class="stags">
+      <text>杭州</text>
+      <text>4年店</text>
+    </view>
+  </view>
+  <van-icon name="arrow" />
+</view>
+<view class="guss bc">
+  <view class="gassT">猜你喜欢</view>
+  <scroll-view scroll-x enable-flex class="scroll-view_H">
+    <view wx:for="{{banners}}" wx:key="item" id="{{item}}" class="gItem">
+      <view class="imgs">
+        <image src="{{item}}" mode="widthFix"></image>
+      </view>
+      <view class="over name">2017加大码胖子外贸欧美男士牛仔夹克外套男衣服1698-J308-P65</view>
+      <view class="price rd">￥65.00</view>
+    </view>
+  </scroll-view>
+</view>
+<van-divider contentPosition="center" borderColor="#9D9D9D" textColor="#999" customStyle="font-size: 28rpx;line-height:76rpx;width:50%;margin:0 auto 20rpx;;">宝贝详情</van-divider>
+<rich-text nodes="{{htmls}}"></rich-text>
+<van-goods-action>
+  <van-goods-action-icon icon="wap-home-o" text="首页" bind:click="onClickIcon" />
+  <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
+  <van-goods-action-button text="加入购物车" type="warning" bind:click="onClickButton" />
+  <van-goods-action-button text="立即购买" bind:click="onClickButton" />
+</van-goods-action>
+<van-popup show="{{ show }}" bind:close="onClose" position="bottom" closeable>
+  <view class="buy">
+    <view class="header flex van-hairline--bottom">
+      <view class="imgss">
+        <image src="{{banners[0]}}" mode="widthFix"></image>
+      </view>
+      <view class="msg">
+        <view class="rd">￥145.00</view>
+        <view>请选择颜色尺码</view>
+      </view>
+    </view>
+    <view class="skuInfo">
+      <view class="s_ku">
+        <view class="s_name">颜色</view>
+        <view class="s_color van-hairline--bottom">
+          <van-tag wx:for="{{colorList.list}}" wx:key="id" plain type="{{colorIdx === index ? 'danger' : ''}}" size="medium" data-idx="{{index}}" bindtap="selectColor">
+            {{item.name}}</van-tag>
+        </view>
+      </view>
+      <view class="s_ku">
+        <view class="s_name">尺码</view>
+        <view class="s_size">
+          <view class="flex j-b a-i" wx:for="{{sizeList.list}}" wx:key="id">
+            <text>{{item.name}}</text>
+            <van-stepper value="{{ 0 }}" bind:change="onChange" data-idx="{{index}}" data-id="{{item.id}}" min="{{0}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="total flex van-hairline--top">
+      <view>共{{selectInfo.num}}套</view>
+      <view class="rd">￥{{filters.tofixed(selectInfo.price)}}</view>
+    </view>
+    <van-button round type="info" block color="#ce2b31">确定</van-button>
+  </view>
+
+</van-popup>

@@ -1,0 +1,25 @@
+<top-mune tabList="{{tabList}}" bc="linear-gradient(to right, #ff5f00, #fa5957)" bindmyevent="taptabs" seach placeHolder="请输入您要找的档口号" bindconfirm="confirms"></top-mune>
+<view class="tab1 flex a-i">
+  <view class="item actives">推荐档口</view>
+</view>
+<view class="list">
+  <view class="s_item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="toStore">
+    <view class="flex a-i j-b store">
+      <view>
+        <view class="name">{{item.marketname}}</view>
+        <text>{{item.cityname}}</text>
+        <text>{{item.year}}年店</text>
+      </view>
+      <van-icon name="arrow" size="30rpx" />
+    </view>
+    <view class="product flex j-b">
+      <view wx:for="{{item.products}}" wx:key="id" wx:for-item="itemson" data-id="{{itemson.id}}" catchtap="toDetail">
+        <view class="overimg">
+          <image src="{{itemson.headurl}}" mode="widthFix"></image>
+        </view>
+        <view class="price rd">￥{{itemson.price}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

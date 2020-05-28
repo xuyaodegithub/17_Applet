@@ -1,0 +1,12 @@
+.logo{
+  width: 292rpx;
+  margin: 300rpx auto;
+}
+.logo image{
+  display: block;
+  width: 100%;
+}
+.van-button.logins{
+  width: 80%;
+  margin: 0 auto;
+}

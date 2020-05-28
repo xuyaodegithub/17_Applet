@@ -1,0 +1,15 @@
+{
+  "component": false,
+  "usingComponents": {
+    "top-mune": "/components/topMune/index",
+    "v-list": "/components/vList/index"
+  },
+  "navigationBarTitleText": "男装短视频",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#eee",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
+  "disableScroll": false
+}

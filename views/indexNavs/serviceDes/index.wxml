@@ -1,0 +1,81 @@
+<view class="header">
+  <image src="http://m.17huo.com/public/images/msg_back.jpg" mode="widthFix"></image>
+  <view class="h2">
+    <view>服装店主拿货神器</view>
+    <view class="des">网站已累计服务
+      <text>67万</text> 家服装店</view>
+  </view>
+</view>
+<view class="sec">
+  <view class="flex">
+    <image src="http://m.17huo.com/public/images/msg_clock.png" mode="widthFix"></image>
+    <view>
+      <view class="title">天天上新</view>
+      <view class="s_des">
+        每日
+        <text>3000+</text> 新款来自3万家服装档口。80万款批发市场新款，低价现货直发
+      </view>
+    </view>
+  </view>
+  <view class="flex">
+    <image src="http://m.17huo.com/public/images/msg_home.png" mode="widthFix"></image>
+    <view>
+      <view class="title">杭州广州一批市场 源头货</view>
+      <view class="s_des">
+        厂家货源便宜，平台0加价，没有二批、三批渠道加价。进货价格低，店主更赚钱,至少多赚
+        <text>30%+</text>
+      </view>
+    </view>
+  </view>
+  <view class="flex">
+    <image src="http://m.17huo.com/public/images/msg_tv.png" mode="widthFix"></image>
+    <view>
+      <view class="title">在线批发网</view>
+      <view class="s_des">
+        不出门，不扛包，不用跑断腿，不怕疫情传染在家就可以
+        <text>轻松进货</text>。每天逛批发市场，高清大图、短视频、在线直播
+      </view>
+    </view>
+  </view>
+  <view class="flex">
+    <image src="http://m.17huo.com/public/images/msg_car.png" mode="widthFix"></image>
+    <view>
+      <view class="title">一件起批</view>
+      <view class="s_des">
+        不用一手起拿，不用拼团，无需囤货，没有库存
+        <text>0门槛</text>。一件起拿，一件代发
+      </view>
+    </view>
+  </view>
+  <view class="flex">
+    <image src="http://m.17huo.com/public/images/msg_ten.png" mode="widthFix"></image>
+    <view>
+      <view class="title">10天包退</view>
+      <view class="s_des">
+        实体店铺货挂卖，朋友圈微信群预售，卖不出，客户不满意，无理由包退。
+        <text>天天上新0库存，0风险</text>
+      </view>
+    </view>
+  </view>
+  <view class="allT">
+    <view class="h2">
+      货源哪里找？
+    </view>
+    <view>汇集11个主流批发市场十多个类目的好货源:杭州四季青，广州沙河万佳、十三行、白马、红棉，深圳南油，义乌小商品。</view>
+    <view>主打男装、女装货源，比如韩版连衣裙、西装、中老年服饰、童装、中老年女装新款、品牌女装、厂家货源、中高档女装、男装品牌等,涵盖鞋类，箱包，配饰，品牌折扣，尾货库存，特价覆盖10元、5元、3元、2元价格段。</view>
+  </view>
+  <view class="allT">
+    <view class="h2">
+      一件代发什么意思？
+    </view>
+    <view>网店、微商，卖出货后，平台进货写客户地址，就算是一件，一件代发平台也会发给你的客户。</view>
+    <view>一件代发服务，让你管好运营即可，发货、售后都由平台来处理。</view>
+  </view>
+  <view class="allT">
+    <view class="h2">
+      一起火的服务平台好在哪里？
+    </view>
+    <view>一起火，作为全国交易量最大的服装批发平台，提供时下最新潮流款式的货源。</view>
+    <view>拥有杭州仓、广州仓等物流仓库，为广大客户提供靠谱的货源和稳定的订单发货服务。自建物流团队自主研发软硬件系统保证发货质量，货源稳定，货源种类广，专业客服团队随时响应，IDG投资正规公司资金保障。</view>
+  </view>
+</view>
