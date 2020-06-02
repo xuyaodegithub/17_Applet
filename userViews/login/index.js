@@ -1,5 +1,6 @@
 // userViews/login/index.js
-const app=getApp()
+const app=getApp();
+import { userLogin } from '../../fetch/user.js'
 Page({
 
   /**
@@ -16,9 +17,18 @@ Page({
 
   },
   userInfo(e){
-    console.log(e.detail)
-    app.globalData.userInfo = e.detail.userInfo
-    wx.navigateBack()
+    console.log(e)
+    if (e.detail.errMsg!=="getUserInfo:ok")return;
+    let data={
+      iv: e.detail.iv,
+      encryptedData: e.detail.encryptedData
+    }
+    userLogin(data).then(res=>{
+      app.userInfoData = res.data;
+
+    })
+    // app.userInfoData = e.detail.userInfo
+    // wx.navigateBack()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

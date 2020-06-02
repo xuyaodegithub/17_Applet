@@ -1,0 +1,18 @@
+<wxs src="../../filters/filters.wxs" module="filter"/>
+<view class="balanceHistory flex">
+  <view class="top">
+    <view class="yue">余额（ 元 ）</view>
+      <view class="hh3">{{userInfo.money}}</view>
+      </view>
+      <scroll-view class="scroll-view_H" wx:if="{{list.length>0}}" scroll-y bindscrolltolower="nextScroll">
+        <van-cell-group>
+          <van-cell title-class="over titleCl" value-class="{{item.type==='plus' ? 'active' : ''}}" title="{{item.name}}" value="{{(item.type==='plus' ? '+' : '-')+ item.money}}" label="{{filter.timefomat(item.time*1000)}}" wx:for="{{list}}"
+            wx:key="idx" />
+        </van-cell-group>
+        <van-divider contentPosition="center">{{!finished ? '加载中...' : '已经到底啦！'}}</van-divider>
+      </scroll-view>
+      <view class="noList" wx:else>
+        <van-icon name="balance-o" color="#C2202D" custom-class="blockk"/> 
+        <view>您还没有余额明细</view>
+      </view>
+    </view>

@@ -1,6 +1,11 @@
+page{
+  background-color: #fff;
+  height: 100%;
+  position: relative;
+}
 .logo{
   width: 292rpx;
-  margin: 300rpx auto;
+  margin: 300rpx auto 400rpx;
 }
 .logo image{
   display: block;

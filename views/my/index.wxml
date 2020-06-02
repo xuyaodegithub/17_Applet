@@ -1,2 +1,25 @@
-<!--views/my/index.wxml-->
-<text>views/my/index.wxml</text>
+<view class="user">
+  <view class="userHeader flex a-i">
+    <view class="imgs">
+      <image src="http://m.17huo.com/public/userCenter/img/user_header.f7caaefd.png" alt="" mode="widthFix" />
+    </view>
+    <span>{{userInfo.username}}</span>
+  </view>
+  <view class="infoMsg">
+    <van-grid border="{{false}}" clickable custom-class="b-rr">
+      <van-grid-item icon="{{item.icon}}" text="{{item.title}}" wx:for="{{menuList}}" wx:key="idx" badge="{{item.num>0 ? item.num : ''}}" url="{{item.link}}" />
+    </van-grid>
+    <van-cell title="我的余额" icon="balance-o" value="￥{{userInfo.money}}" is-link value-class="price" style="margin: 25rpx 0;" class="b-rr" url="/userViews/balanceHistory/index" custom-class="b-rr" />
+    <view class="b-rr">
+      <van-cell title="收货地址" icon="location-o" is-link clickable url="/userViews/addressList/index"/>
+      <van-cell title="交易密码设置" icon="closed-eye" is-link url="/userViews/changePass/index" clickable/>
+      <!-- <van-cell title="联系客服" icon="service-o" is-link clickable/> -->
+      <van-button custom-class="cancatBtn a-i" plain hairline block open-type="contact">
+        <view class="flex a-i">
+          <van-icon name="service-o" size="32rpx" />联系客服
+          <van-icon name="arrow" size="32rpx" custom-class="lastt"/>
+        </view>
+      </van-button>
+    </view>
+  </view>
+</view>

@@ -1,9 +1,10 @@
 <top-mune tabList="{{tabList}}" bc="linear-gradient(to right, #fb0654, #fa377b)" bindmyevent="taptabs"></top-mune>
 <van-sticky>
-  <van-tabs active="{{active}}" sticky bind:change="changes" tab-active-class="tabActive te" border="{{false}}">
+  <van-tabs active="{{active}}" sticky bind:click="changes" tab-active-class="tabActive te" border="{{false}}">
     <van-tab title="好货推荐" name="recommand"></van-tab>
     <van-tab title="最新商品" name="newproducts"></van-tab>
     <van-tab title="爆款商品" name="baokuan"></van-tab>
   </van-tabs>
 </van-sticky>
 <card-list list="{{list}}"></card-list>
+<van-divider contentPosition="center">{{scrollLoading ? '加载中...' : '已经到底啦！'}}</van-divider>

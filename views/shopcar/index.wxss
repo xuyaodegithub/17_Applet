@@ -1,1 +1,143 @@
-/* views/shopcar/index.wxss */
+page {
+  width: initial;
+  padding: 30rpx;
+  padding-bottom: 100rpx;
+}
+
+.noP {
+  text-align: center;
+  line-height: 1;
+  padding-top: 50rpx;
+}
+
+.noP > .btn {
+  width: 350rpx;
+  font-size: 30rpx;
+  line-height: 76rpx;
+  text-align: center;
+  margin: 0 auto 106rpx;
+  color: #9c9c9c;
+  border: 1px solid #9c9c9c;
+}
+
+.noP > .pp {
+  font-size: 30rpx;
+  color: #9c9c9c;
+  margin: 40rpx 0 50rpx;
+  text-indent: 1em;
+}
+
+.noP > image {
+  display: block;
+  margin: 0 auto;
+  width: 350rpx;
+  height: 240rpx;
+  margin-bottom: 36rpx;
+}
+
+.van-submit-bar {
+  bottom: 105rpx;
+}
+
+.shop {
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  border-radius: 20rpx;
+  padding: 30rpx 24rpx;
+  color: #333;
+}
+
+.shop .msg {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.msg .price {
+  font-size: 36rpx;
+  color: #c2202d;
+}
+
+.msg .price text {
+  font-weight: bold;
+  display: inline-block;
+}
+
+.shop .msg .sku {
+  display: inline-block;
+  padding: 0 10rpx;
+  font-size: 26rpx;
+  background-color: #f4f4f4;
+  color: #9c9c9c;
+  line-height: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.msg .van-icon {
+  margin: 0 0 0 20rpx;
+}
+
+.msg .name {
+  margin-bottom: 20rpx;
+}
+
+.msg .name .van-multi-ellipsis--l2 {
+  font-weight: 500;
+}
+
+.shop .center {
+  position: relative;
+  overflow: hidden;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+
+.shop .center image {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shop .shopName {
+  font-size: 32rpx;
+  margin-bottom: 55rpx;
+}
+
+.shop .item {
+  margin-bottom: 65rpx;
+}
+
+.van-icon {
+  font-size: 38rpx;
+  margin-right: 20rpx;
+}
+
+.skuList {
+  padding: 0 32rpx 0 80rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.skuList > .flex {
+  margin-top: 40rpx;
+}
+
+.skuList > .flex text {
+  flex: 1;
+  text-align: center;
+}
+
+.skuList > .flex .van-stepper {
+  margin-left: 80rpx;
+  line-height: 48rpx;
+  height: 48rpx;
+  padding: 0;
+}

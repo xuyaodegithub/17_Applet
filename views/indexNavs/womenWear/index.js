@@ -1,4 +1,8 @@
-const [http, app] = [require('../../../fetch/request.js'), getApp()]
+const [http, app] = [require('../../../fetch/request.js'), getApp()];
+import {
+  initIndex,
+  initVideosTabs
+} from '../../../fetch/index.js';
 // views/indexNavs/womenWear/index.js
 Page({
 
@@ -6,44 +10,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabList: [{
-      name: '全部',
-      type: 0
-    }, {
-      name: '毛衣',
-      type: 1
-    }, {
-      name: '衬衫',
-      type: 2
-    }, {
-      name: '蕾丝衫/雪纺衫',
-      type: 3
-    }, {
-      name: '裤子',
-      type: 4
-    }, {
-      name: '牛仔裤',
-      type: 5
-    }, {
-      name: '套装/学生校服/工作制服',
-      type: 6
-    }, {
-      name: '婚纱/旗袍/礼服',
-      type: 7
-    }, {
-      name: 'T恤',
-      type: 8
-    }, {
-      name: '毛针织衫',
-      type: 9
-    }, {
-      name: '中老年女装',
-      type: 10
-    }, ],
+    tabList: [],
     active: 'recommand',
     list: [],
     page:1,
-    tabIds: ['162104'],
+    tabIds: ['0'],
     scrollLoading:true
   },
 
@@ -52,18 +23,23 @@ Page({
    */
   onLoad: function(options) {
     this.initData()
+    this.initTabs()
   },
   taptabs(e) {
     // console.log(e.detail)
     this.setData({
       page:1,
-      tabIds: e.detail,
+      tabIds: [e.detail],
       scrollLoading: true,
       active: 'recommand'
     }, this.initData)
   },
   changes(e) {
     // console.log(e.detail.name, e.detail.title, this.data.active)
+    if (e.detail.name === this.data.active) return;
+    wx.pageScrollTo({
+      scrollTop: 0,
+    })
     this.setData({
       page: 1,
       scrollLoading: true,
@@ -72,20 +48,24 @@ Page({
   },
   initData(){
     const data={
-      url:'/weapp/Products/search',
-      type: "POST",
-      data:{
         page:this.data.page,
         sex_type: 2,
         active_tab: this.data.active,
         cids: this.data.tabIds,
-      }
     }
-    http.beforRqs(data).then(res=>{
+    initIndex(data).then(res=>{
       this.setData({
         list: this.data.page === 1 ? res.data : [...this.data.list, ...res.data],
         scrollLoading: res.data.length < 10 ? false : true
-      }, this.setListTop)
+      })
+    })
+  },
+  initTabs(){
+    let data={
+      sex_type:2,
+    }
+    initVideosTabs(data).then(res=>{
+      this.setData({ tabList:[{name:'全部',cid:0},...res.data]})
     })
   },
   /**

@@ -1,1 +1,63 @@
-/* views/my/index.wxss */
+.user {
+  padding-bottom: 100rpx;
+}
+
+.userHeader {
+  background: linear-gradient(to right bottom, #c30000, #fd5f42);
+  padding: 50rpx 50rpx 100rpx;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 1;
+}
+
+.userHeader   .imgs {
+  position: relative;
+  overflow: hidden;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 25rpx;
+}
+
+.userHeader   .imgs image {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.infoMsg {
+  padding: 0 30rpx;
+  position: relative;
+  top: -72rpx;
+}
+
+.infoMsg .price {
+  color: #f72f6c;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.b-rr{
+  margin: 25rpx 0;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.van-button.cancatBtn{
+  position: relative;
+  justify-content: flex-start;
+}
+.cancatBtn .van-icon{
+  margin-right:8rpx;
+}
+.cancatBtn .lastt{
+  position: absolute;
+  right:24rpx;
+  color: #969799;
+}

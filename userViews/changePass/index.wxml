@@ -1,0 +1,13 @@
+<view class="changePass">
+  <view class="storge">支付密码</view>
+  <van-cell-group>
+    <van-field value="{{info.sms}}" bind:change="change" data-idx="{{1}}" center clearable label="短信验证码" placeholder="请输入短信验证码" label-class="leftLabel" use-button-slot>
+      <van-button slot="button" wx:if="{{phone}}" size="small" type="primary" bindtap="sendSms">{{timer ? timer : '发送验证码'}}</van-button>
+      <van-button slot="button" open-type="getPhoneNumber" wx:else size="small" type="primary" bindgetphonenumber="getPhoneNumber"> 发送验证码</van-button>
+
+    </van-field>
+    <van-field clearable value="{{info.pass}}" placeholder="请输入不少于6位数的密码" type="password"  bind:change="change" data-idx="{{2}}"/>
+    <van-field clearable value="{{info.pass2}}" placeholder="请再次输入密码确认" type="password"  bind:change="change" data-idx="{{3}}"/>
+  </van-cell-group>
+  <van-button custom-class="te" type="primary" block bindtap="savePass">确认</van-button>
+</view>

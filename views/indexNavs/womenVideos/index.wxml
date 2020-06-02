@@ -1,2 +1,3 @@
 <top-mune tabList="{{tabList}}" bc="linear-gradient(to right, #fb0654, #fa377b)" bindmyevent="taptabs" border></top-mune>
 <v-list list="{{list}}" />
+<van-divider contentPosition="center">{{scrollLoading ? '加载中...' : '已经到底啦！'}}</van-divider>

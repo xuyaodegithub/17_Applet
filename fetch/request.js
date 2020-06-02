@@ -5,84 +5,62 @@
 //   'content-type': 'application/x-www-form-urlencoded' // 默认值
 // },
 const app = getApp()
-function beforRqs(data){
+
+function beforRqs(url, data, method = 'GET') {
   return new Promise((resole, reject) => {
-    if (app.token) fetch(data, app.token, resole, reject);
-    else app.loginInfoCallback = (token) => fetch(data, token, resole, reject);
+    if (app.token) fetch(url, data, method, app.token, resole, reject);
+    else app.loginInfoCallback.push(function(token) {
+      fetch(url, data, method, token, resole, reject)
+    });
   })
 }
-function fetch(data, token, resole, reject) {
-    wx.request({
-      url: app.baseUrl + data.url,
-      data: data.data,
-      dataType: 'json',
-      method: data.type ? data.type : 'GET',
-      header: {
-        // 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'weapp_token': token
-        // 'cookie': wx.getStorageSync("sessionid")//读取cookie
-      },
-      success: function (res) {
-        // console.log(res.statusCode)
-        if (!res.data.code) resole(res.data)
-        else {
-          wx.showToast({ title: res.data.msg, icon: 'none' });
-          reject(res)
-        }
-      },
-      fail: function (res) {
+
+function fetch(url, data, method, token, resole, reject) {
+  wx.request({
+    url: app.baseUrl + url,
+    data: data,
+    dataType: 'json',
+    method: method,
+    header: {
+      // 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      'weapp-token': token
+    },
+    success: function(res) {
+      // console.log(res.statusCode)
+      if (!res.data.code) resole(res.data);
+      else if (res.data.code === 1001) { //token失效
+        app.loginInfoCallback.push(function (t) {
+          fetch(url, data, method, t, resole, reject)
+        });
+        app.onLaunch();
+        return;
+      } else if (res.data.code === 1002) {
+        wx.navigateTo({
+          url: '/userViews/login/index',
+        })
+        reject(res)
+      } else {
         wx.showToast({
-          title: '请求错误',
-          icon: 'none',
-          duration: 2000
+          title: res.data.msg,
+          icon: 'none'
         });
         reject(res)
       }
+    },
+    fail: function(res) {
+      wx.showToast({
+        title: '请求错误',
+        icon: 'none',
+        duration: 2000
+      });
+      reject(res)
+    },
+    complete() {
+      wx.stopPullDownRefresh()
+      wx.hideLoading()
+    }
   })
 }
-// function mothod3(data) {
-//   wx.request({
-//     url: app.baseUrl + data.url,
-//     data: data.data,
-//     dataType: 'json',
-//     method: 'POST',
-//     header: {
-//       'cookie': wx.getStorageSync("sessionid"),//读取cookie
-//       'content-type': 'application/x-www-form-urlencoded' // 默认值
-//     },
-//     success: function (res) {
-//       data.callback(res)
-//     },
-//     fail: function (res) {
-//       wx.showToast({
-//         title: '请求错误',
-//         icon: 'none',
-//         duration: 2000
-//       });
-//     }
-//   })
-// }
-// function mothod4(data) {
-//   wx.request({
-//     url: app.snrcUrl + data.url,
-//     data: data.data,
-//     dataType: 'json',
-//     method: 'POST',
-//     header: {
-//       'content-type': 'application/x-www-form-urlencoded' // 默认值
-//     },
-//     success: function (res) {
-//       data.callback(res)
-//     },
-//     fail: function (res) {
-//       wx.showToast({
-//         title: '请求错误',
-//         icon: 'none',
-//         duration: 2000
-//       });
-//     }
-//   })
-// }
 // function getGraphCode(data) {
 //   wx.request({
 //     url: app.baseUrl + '/mobile/code/wxGraphCode',
@@ -113,37 +91,6 @@ function fetch(data, token, resole, reject) {
 //     }
 //   })
 // }
-// function getLoginMess(callback,_self,options){
-//     if (app.userId) {
-//       callback()
-//     } else {
-//       console.log(_self.route+'-----------------------------------')
-//       let callBackUrl={
-//         url: _self.route,
-//         id: options ? options.id : "",
-//         type: options ? options.type : "",
-//         // recId: options ? options.recId : ''
-//         // inviteId: options.inviteId ? options.inviteId : '',
-//         // inviteMemberId: options.inviteMemberId ? options.inviteMemberId : '',
-//         // isShare: options.isShare ? options.isShare : '',
-//       }
-//       if (options){
-//         callBackUrl.recId = options.recId ? options.recId : ''
-//         callBackUrl.isMore = options.isMore ? options.isMore : ''
-//         callBackUrl.inviteId = options.inviteId ? options.inviteId : ''
-//         callBackUrl.inviteMemberId = options.inviteMemberId ? options.inviteMemberId : ''
-//         callBackUrl.isShare = options.isShare ? options.isShare : ''
-//         callBackUrl.ordeNo = options.ordeNo ? options.ordeNo : ''
-//       }
-//       wx.setStorageSync('callBackUrl', callBackUrl)
-//       app.getLogin().then(function (res) {
-//         callback()
-//       }).catch(function (err) {
-//         console.log(err)
-//       })
-//     }
-//   }
-
 module.exports = {
   beforRqs
-} 
+}

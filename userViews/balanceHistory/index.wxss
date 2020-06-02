@@ -1,0 +1,56 @@
+page{
+  height: 100%;
+}
+.balanceHistory {
+  height: 100%;
+  flex-direction: column;
+}
+
+.scroll-view_H {
+  flex: 1;
+  min-height: 0;
+  overflow-y: scroll;
+}
+
+.scroll-view_H .van-cell__value {
+  color: rgb(36, 185, 119);
+}
+
+.scroll-view_H .active {
+  color: #c2202d;
+}
+
+.scroll-view_H .titleCl {
+  width: 70%;
+  flex: initial;
+}
+
+.noList {
+  padding-top: 120rpx;
+  flex: 1;
+  min-height: 0;
+  margin: 0 auto;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.noList  .blockk {
+  display: block;
+  font-size: 200rpx;
+  margin-bottom: 30rpx;
+}
+
+.top {
+  padding: 70rpx 44rpx;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 1;
+  background: linear-gradient(to right bottom, #da101c, #f9614a);
+  background: -webkit-linear-gradient(to right bottom, #da101c, #f9614a);
+}
+
+.top  .hh3 {
+  font-size: 58rpx;
+  line-height: 1;
+  margin-top: 50rpx;
+}

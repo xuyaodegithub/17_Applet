@@ -1,0 +1,10 @@
+.initActive, .addAddress {
+  margin-top: 30rpx;
+  padding-bottom: 100rpx;
+}
+
+.initActive .btn, .addAddress .btn {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 150rpx;
+}

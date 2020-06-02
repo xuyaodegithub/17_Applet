@@ -1,0 +1,17 @@
+<view class="addAddress">
+  <van-cell-group>
+    <van-field value="{{getName}}" placeholder="收货人" style="line-height: 60rpx" />
+    <van-field value="{{phone}}" type="tel" placeholder="手机号码" style="line-height: 60rpx" />
+    <van-cell title="{{areaName}}" is-link :title-style="titleS" bindclick="open" />
+    <van-field value="{{Detailed}}" type="textarea" placeholder="详细地址:如道路、门牌号、小区、楼栋号、单元室等" :autosize="{maxHeight: 100, minHeight: 70}" />
+  </van-cell-group>
+  <view class="initActive">
+    <van-cell clickable title="设置为默认地址" bindclick="chose" title-style="line-height:60rpx">
+        <van-checkbox slot="default" value="{{active}}"  checked-color="#C4121E" />
+    </van-cell>
+  </view>
+  <van-button type="danger" size="large" round class="btn" block bindtap="save">保存</van-button>
+  <van-popup show="{{show}}" position="bottom">
+    <van-area area-list="{{area}}" columns-placeholder="{{['请选择', '请选择', '请选择']}}" bind:confirm="confirm" bind:cancel="cancel" value="{{codes}}" />
+  </van-popup>
+</view>

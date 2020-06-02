@@ -1,4 +1,5 @@
-const [http, app] = [require('../../fetch/request.js'), getApp()]
+const [http, app] = [require('../../fetch/request.js'), getApp()];
+import { initIndex, initIndexVideo } from '../../fetch/index.js';
 // views/index/index.js
 Page({
 
@@ -30,30 +31,18 @@ Page({
         url: '/views/indexNavs/marketWholesale/index'
       },
     ],
-    shortList: [{
-        title: '女装短视频',
-        url: '/views/indexNavs/womenVideos/index',
-        tag: '品牌',
-        imgs: ['https://17huo.oss-cn-hangzhou.aliyuncs.com/product/2020/5/24/dbaa4b27068547b5bc2b19d0f322657d.jpeg', 'https://17huo.oss-cn-hangzhou.aliyuncs.com/product/2020/5/25/b47a0cc9a2624ddc8726dc37b0fbbe93.jpeg']
-      },
-      {
-        title: '男装短视频',
-        url: '/views/indexNavs/menVideos/index',
-        tag: '爆款',
-        imgs: ['https://img.alicdn.com/bao/uploaded/i1/381543957/O1CN01ae1SEW1f6LpmkIkXm_!!0-item_pic.jpg_250x250.jpg', 'https://img.alicdn.com/bao/uploaded/i3/381543957/O1CN01Wjat9C1f6LpegTm90_!!0-item_pic.jpg_250x250.jpg']
-      },
-    ],
+    shortList: {},
     page: 1,
     scrollLoading: true,
-    listTop:0
+    listTop: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.initData()
-   
+    this.initData();
+    this.initVideoList();
     // console.log(this.route)
   },
   seach(e) {
@@ -71,38 +60,44 @@ Page({
     })
     this.setData({
       active: e.detail.name,
-      page:1,
-      scrollLoading:true,
+      page: 1,
+      scrollLoading: true,
     }, this.initData)
   },
   initData() {
     const data = {
-      url: '/weapp/Products/search',
-      data: {
         page: this.data.page,
         active_tab: this.data.active
-      }
     }
-    http.beforRqs(data).then(res => {
+    initIndex(data).then(res => {
       this.setData({
-        list: this.data.page===1 ? res.data : [...this.data.list, ...res.data],
+        list: this.data.page === 1 ? res.data : [...this.data.list, ...res.data],
         scrollLoading: res.data.length < 10 ? false : true
       }, this.setListTop)
-    
     })
   },
-  setListTop(){
-    if (this.data.listTop>0)return;
+  initVideoList() {
+    initIndexVideo({}).then(res => {
+      this.setData({
+        shortList: res.data
+      })
+      // console.log(this.data.shortList,res)
+    })
+  },
+  setListTop() {
+    if (this.data.listTop > 0) return;
     let _self = this;
     wx.nextTick(() => {
       const query = wx.createSelectorQuery()
       query.select('#list').boundingClientRect()
       query.selectViewport().scrollOffset()
-      query.exec(function (res) {
+      query.exec(function(res) {
         // console.log(res)
         // res[0].top       // #the-id节点的上边界坐标
         // res[1].scrollTop // 显示区域的竖直滚动位置
-        _self.setData({ listTop: res[0].top - 44 })
+        _self.setData({
+          listTop: res[0].top - 44
+        })
       })
     })
   },
@@ -138,10 +133,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    this.setData({
+      page: 1,
+      active_tab: 'recommand'
+    })
+    this.initData();
+    this.initVideoList();
   },
-  onPageScroll(e){
-    console.log(e.scrollTop)
+  onPageScroll(e) {
+    // console.log(e.scrollTop)
   },
   /**
    * 页面上拉触底事件的处理函数

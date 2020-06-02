@@ -1,4 +1,5 @@
-const app=getApp()
+const app=getApp();
+import { userInfo } from '../../fetch/user.js'
 // views/my/index.js
 Page({
 
@@ -6,16 +7,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:''
+    userInfo:{
+      username:'',
+      money:''
+    },
+    menuList: [
+      { title: '待付款', icon: 'paid', num: 0, link: '/userViews/orderList/index?type=1' },
+      { title: '待采购', icon: 'cart-circle-o', num: 0, link: '/userViews/orderList/index?type=2' },
+      { title: '已发货', icon: 'logistics', num: 0, link: '/userViews/orderList/index?type=3' },
+      { title: '全部订单', icon: 'orders-o', num: 0, link: '/userViews/orderList/index' },
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    userInfo().then(res=>{
+      app.userInfoData=res.data;
+      this.setData({ userInfo: res.data})
+    })
+  },
+  ownAdress(){
+    wx.getSetting({
+      success:(res)=>{
+        if (res.authSetting['scope.address']){
+          console.log(111)
+        }else{
+          wx.authorize({
+            scope: 'scope.address',
+            success:()=>{},
+            fail:()=>{}
+          })
+        }
+      }
+    })
     
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

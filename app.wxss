@@ -14,3 +14,7 @@ page{
 .tabActive.te{
   color: #ce2b31;
 }
+.van-divider.van-divider--center{
+  padding: 32rpx 0;
+  margin: 0;
+}

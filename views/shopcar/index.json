@@ -1,13 +1,14 @@
 {
   "component": false,
   "usingComponents": {
-    
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index"
   },
   "navigationBarTitleText": "购物车",
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTextStyle": "black",
   "backgroundColor": "#eee",
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "onReachBottomDistance": 50,
   "backgroundTextStyle": "dark",
   "disableScroll": false

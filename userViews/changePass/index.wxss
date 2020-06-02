@@ -1,0 +1,21 @@
+page{
+  height: 100%;
+}
+.changePass {
+  min-height: 100%;
+  padding: 80rpx 0;
+  background-color: #fff;
+}
+
+.changePass  .storge {
+  font-size: 48rpx;
+  text-align: center;
+  margin-bottom: 100rpx;
+}
+
+.changePass  .te {
+  width: 90%;
+  background-color: #ee0a24;
+  border-color: #ee0a24;
+  margin: 120rpx auto;
+}

@@ -24,12 +24,12 @@ Component({
    */
   methods: {
     seachTab(e){
-      const [type, idx] = [e.currentTarget.dataset.type, e.currentTarget.dataset.idx];
+      const [cid, idx] = [e.currentTarget.dataset.cid, e.currentTarget.dataset.idx];
       if (idx === this.data.selectIdx) return;
       this.setData({
         selectIdx: idx
       })
-      this.triggerEvent('myevent', type)
+      this.triggerEvent('myevent', cid)
     },
     confirm(e){
       const value=e.detail

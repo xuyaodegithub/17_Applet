@@ -1,3 +1,5 @@
+const [http, app] = [require('../../fetch/request.js'), getApp()];
+import { proDetail, addShopcar } from '../../fetch/index.js';
 // views/detail/index.js
 Page({
 
@@ -5,66 +7,153 @@ Page({
    * 页面的初始数据
    */
   data: {
-    videos: 'https://17huo.oss-cn-hangzhou.aliyuncs.com/product/2020/5/21/c5aeae92748f48a99418452b9f0bb2b2.mp4',
-    banners: [
-      'http://img0.17huo.com/01/2016-05-31/04a2fca0b62344038f83ad982c474469.jpg',
-      'http://img0.17huo.com/01/2016-05-31/f26a65c9f83f108936c3e4ce63503c92.jpg',
-      'http://img0.17huo.com/01/2016-05-31/4af5e75c93c76c94bb55c972234e89e9.jpg',
-      'http://img0.17huo.com/01/2016-05-31/5046127250b44071781072088d80e2b9.jpg'
-    ],
-    htmls: `<div class="d_html">
-        <p><img src="https://cbu01.alicdn.com/img/ibank/2015/051/302/2649203150_1742340954.jpg"> <img src="https://cbu01.alicdn.com/img/ibank/2015/583/730/2651037385_1742340954.jpg"> <img src="https://cbu01.alicdn.com/img/ibank/2015/382/040/2651040283_1742340954.jpg"></p>
-<p><img src="https://cbu01.alicdn.com/img/ibank/2015/845/791/2649197548_1742340954.jpg"></p>
-<p><img src="https://cbu01.alicdn.com/img/ibank/2015/000/230/2651032000_1742340954.jpg"></p>
-<p><img src="https://cbu01.alicdn.com/img/ibank/2015/229/491/2649194922_1742340954.jpg"></p>
-<p><img src="https://cbu01.alicdn.com/img/ibank/2015/892/002/2649200298_1742340954.jpg"></p>
-<p><img src="https://cbu01.alicdn.com/img/ibank/2015/267/430/2651034762_1742340954.jpg"></p>
-<p><img src="https://cbu01.alicdn.com/img/ibank/2015/515/769/2646967515_1742340954.jpg"></p>
-<p><img src="https://cbu01.alicdn.com/img/ibank/2015/615/079/2646970516_1742340954.jpg"></p>
-<p>&nbsp;</p>    </div>`,
-    show:false,
-    colorList: { name: '颜色', list: [{ name: '白色', id: 5 }, { name: '黑色', id: 6 }, { name: '粉色', id: 7 }, { name: '军绿', id: 8 }]},
-    sizeList: { name: '尺码', list: [{ name: 'X', id: 1 }, { name: 'XXL', id: 2 }, { name: 'M', id: 3 }, { name: 'L', id: 4 }] },
-    colorIdx:'',
-    selectInfo:{
-      num:0,
-      price:0.00
+    banners: [],
+    htmls: '',
+    show: false,
+    colorList: [],
+    sizeList: [],
+    colorIdx: 0,
+    selectInfo: { //总数和总价
+      num: 0,
+      price: 0.00
     },
-    commitInfo:{}
+    commitInfo: {},
+    id: '',
+    proInfo: {},
+    sellerInfo: {},
+    gassList: [],
+    upType: 1, //1添加购物车，2购买
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options.id)
-    this.initHtml()
-  },
-  initHtml() {
     this.setData({
-      htmls: this.data.htmls.replace(/\<img/g, "<img style='display:block;width:100%;'")
+      id: options.id,
+      commitInfo: {
+        product_id: options.id,
+        sku_list: []
+      },
+    })
+    this.initData()
+  },
+  initHtml(val) {
+    this.setData({
+      htmls: val.replace(/\<img/gi, "<img style='display:block;width:100%;'")
     })
   },
-  onClose(){
+  onClose() {
     this.setData({
       show: false
     })
   },
-  onClickButton(){
-    this.setData({
-      show:true
-    })
-  },
-  onChange(e){
-    const num = e.detail, idx = e.currentTarget.dataset.idx;
-    console.log(num,idx)
-  },
-  selectColor(e){
+  onClickIcon(e) {
     const idx = e.currentTarget.dataset.idx;
-    if (idx===this.data.colorIdx)return;
-    this.setData({
-      colorIdx: idx
+    wx.switchTab({
+      url: idx === 1 ? '/views/index/index' : '/views/shopcar/index',
     })
+  },
+  onClickButton(e) {
+    const idx = e.currentTarget.dataset.idx;
+    this.setData({
+      show: true,
+      upType: idx
+    })
+  },
+  onChange(e) {
+    const [num, idx, sizeList] = [e.detail, e.currentTarget.dataset.idx, this.data.sizeList];
+    sizeList[idx].num = num
+    this.setData({
+      sizeList
+    }, this.initcommitInfo)
+  },
+  selectColor(e) {
+    if (idx === this.data.colorIdx) return;
+    const [idx, colorList, sizeList, commitInfo] = [e.currentTarget.dataset.idx, this.data.colorList, this.data.sizeList, this.data.commitInfo];
+    sizeList.map(item => item.num = 0)
+    commitInfo.sku_list.map(item => {
+      if (item.color_id === colorList[idx].id) {
+        const s = sizeList.findIndex(it => it.id === item.size_id)
+        sizeList[s].num = item.num
+      }
+    })
+    this.setData({
+      colorIdx: idx,
+      sizeList
+    })
+  },
+  initcommitInfo() {
+    const [colorId, sizeList, commitInfo, selectInfo] = [this.data.colorList[this.data.colorIdx].id, this.data.sizeList, this.data.commitInfo, this.data.selectInfo];
+    sizeList.map(item => {
+      let data = {
+        color_id: colorId,
+        color: this.data.colorList[this.data.colorIdx].name,
+        size_id: item.id,
+        size: item.name,
+        num: item.num
+      }
+      const s = commitInfo.sku_list.findIndex(item => item.color_id === data.color_id && item.size_id === data.size_id)
+      if (s > -1) commitInfo.sku_list.splice(s, 1, data)
+      else commitInfo.sku_list.push(data)
+    })
+    commitInfo.sku_list = commitInfo.sku_list.filter(item => item.num > 0)
+    selectInfo.num = commitInfo.sku_list.reduce((pre, item, idx) => pre += parseFloat(item.num), 0)
+    selectInfo.price = commitInfo.sku_list.reduce((pre, item, idx) => pre += (parseFloat(item.num) * parseFloat(this.data.proInfo.nowprice)), 0)
+    this.setData({
+      commitInfo,
+      selectInfo
+    })
+  },
+  initData() {
+    let data = {
+        id: this.data.id
+    }
+    proDetail(data).then(res => {
+      this.setData({
+        htmls: this.initHtml(res.data.product.content),
+        banners: res.data.imgs,
+        colorList: res.data.color_infos,
+        sizeList: res.data.size_infos.map(item => ({ ...item,
+          num: 0
+        })),
+        proInfo: res.data.product,
+        sellerInfo: res.data.seller,
+        gassList: res.data.products,
+      })
+      // console.log(this.data.sizeList)
+    })
+  },
+  upDetail(e) { //点击猜你喜欢
+    const id = e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: `/views/detail/index?id=${id}`,
+    })
+  },
+  goservers() {
+    wx.navigateTo({
+      url: '/views/indexNavs/serviceDes/index',
+    })
+  },
+  goSeller() {
+    const id = this.data.sellerInfo.id;
+  },
+  sureUp() {
+    const [type, commitInfo] = [this.data.upType, this.data.commitInfo];
+    if (commitInfo.sku_list.length < 1) {
+      wx.showToast({title: '请先选择规格',icon: 'none'})
+      return
+    }
+    addShopcar(commitInfo).then(res => {
+      if (type===1) {
+        wx.showToast({ title: '添加购物车成功！', icon: 'none' })
+      }else{
+        wx.navigateTo({
+          url: `/userViews/confirmOrder/index?id=${res.data}`,
+        })
+      }
+    })
+    console.log(this.data.commitInfo)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

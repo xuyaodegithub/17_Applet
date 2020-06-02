@@ -4,7 +4,7 @@
     <input placeholder="{{placeHolder}}" confirm-type="search" bindconfirm="confirm" placeholder-style="color:#fff;" />
   </view>
   <view class="flex a-i">
-    <view class="tab {{selectIdx===index ? 'active' : ''}}" wx:for="{{tabList}}" wx:key="index" data-type="{{item.type}}" data-idx="{{index}}" bindtap="seachTab">{{item.name}}</view>
+    <view class="tab {{selectIdx===index ? 'active' : ''}}" wx:for="{{tabList}}" wx:key="index" data-cid="{{item.cid}}" data-idx="{{index}}" bindtap="seachTab">{{item.name}}</view>
   </view>
   <view class="border" wx:if="{{!border}}"></view>
   <view class="border2" wx:else></view>

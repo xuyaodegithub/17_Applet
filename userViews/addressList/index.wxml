@@ -1,2 +1,30 @@
-<!--userViews/addressList/index.wxml-->
-<text>userViews/addressList/index.wxml</text>
+<view class="adress">
+  <view wx:if="{{list.length>0}}" class="b-rr">
+    <view wx:for="{{list}}" wx:key="id" class="item">
+      <van-swipe-cell right-width="{{ 65 }}" bindclick="saveLocal" data-item="{{item}}">
+        <view class="msg flex a-i j-b">
+          <view class="left">
+            <view class="username">
+              <text>{{item.consignee}}</text>
+              <text>{{item.mobile}}</text>
+            </view>
+            <view class="pss">{{item.address}} {{item.addr}}
+              <text wx:if="{{!index}}">默认</text>
+            </view>
+          </view>
+          <van-icon name="edit" size="42rpx" catchtap="updataItem" data-item="{{item}}"/>
+        </view>
+        <van-button style="height: 100%;width:100%;" square slot="right" type="danger" data-item="{{item}}" data-idx="{{index}}" class="delete-button" bindtap="deleteItem">删除</van-button>
+      </van-swipe-cell>
+    </view>
+  </view>
+  <view class="no_adress" wx:else>
+    <!--            <van-icon name="map-marked" color="#C2202D"/>-->
+    <image src="http://m.17huo.com/public/userCenter/img/noadress.90fc9585.png" alt="" mode="widthFix" />
+      <view>
+        您还没有收货地址哦！
+      </view>
+  </view>
+  <van-button type="danger" size="large" round icon="add" class="btn" bindtap="add">添加新地址
+  </van-button>
+</view>

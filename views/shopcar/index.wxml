@@ -1,2 +1,40 @@
-<!--views/shopcar/index.wxml-->
-<text>views/shopcar/index.wxml</text>
+<wxs src="../../filters/filters.wxs" module="filter"></wxs>
+<view wx:if="{{list.length>0}}">
+  <view class="shop" wx:for="{{list}}" wx:key="index">
+    <view class="shopName flex a-i">
+      <van-icon name="{{item.selectAll ? 'checked' : 'circle'}}" color="{{item.selectAll ? '#C2202D' : ''}}" bindtap="selectShop" data-idx="{{index}}" size="38rpx" /> {{item.city_name}}货源
+    </view>
+    <view wx:for="{{item.list}}" wx:for-item="itemson" wx:for-index="itemidx" wx:key="id" class="item" wx:if="{{itemson.sku_list.length>0}}">
+      <view class="flex j-b a-i">
+        <view class="left" wx:if="{{itemson.sku_list.length>0}}">
+          <van-icon name="{{filter.inclubse(item.idList,itemson.id) ? 'checked' : 'circle'}}" color="{{filter.inclubse(item.idList,itemson.id) ? '#C2202D' : ''}}" bindtap="selectItem" data-idx="{{index}}" data-itemidx="{{itemidx}}" size="38rpx" />
+        </view>
+        <view class="center">
+          <image src="{{itemson.product_img}}" mode="widthFix" />
+        </view>
+        <view class="msg right flex">
+          <view class="name flex">
+            <view class="van-multi-ellipsis--l2">{{itemson.product_name}}</view>
+            <van-icon name="delete" color="#9c9c9c" bindtap="deletes" data-idx="{{index}}" data-itemidx="{{itemidx}}" />
+          </view>
+          <view class="price">
+            <text>￥{{itemson.nowprice}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="skuList">
+        <view wx:for="{{itemson.sku_list}}" wx:key="index" class="it flex a-i" wx:for-item="it" wx:for-index="itidx">
+          <text>{{it.color}}</text>
+          <text>{{it.size}}</text>
+          <van-stepper value="{{ it.num }}" min="{{0}}" integer bind:change="changenum" data-idx="{{index}}" data-itemidx="{{itemidx}}" data-itidx="{{itidx}}" async-change integer/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:else class="noP">
+  <image src="http://m.17huo.com/public/userCenter/img/noshop.a4f6e29d.png" mode="widthFix" />
+  <view class="pp">您的购物车还是空的哦！</view>
+  <view class="btn b-rr" bindtap="goindex">回首页逛逛</view>
+</view>
+<van-submit-bar wx:if="{{list.length>0}}" price="{{ allPrice*100 }}" button-text="提交订单" bind:submit="onSubmit" />

@@ -9,7 +9,7 @@ var filters = {
     return arr.join('')
   },
   //时间转换
-  timefomat: function(val) {
+  timefomat: function(val, k) {
     var data = getDate(val) //wxs中不支持new操作符
     var year = data.getFullYear()
     var month = data.getMonth() + 1
@@ -37,10 +37,15 @@ var filters = {
     if (sec < 10) {
       sec = '0' + sec
     }
-    return year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec
+    if (k) return year + '-' + month + '-' + day;
+    else return year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec
   },
   tofixed: function(v) {
     return parseFloat(v).toFixed(2)
+  },
+  inclubse: function(arr, id) {
+    // console.log(arr.length,JSON.stringify(arr), id)
+    return arr.indexOf(id)>-1
   }
 }
 

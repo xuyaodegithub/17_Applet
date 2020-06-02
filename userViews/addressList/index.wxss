@@ -1,1 +1,79 @@
-/* userViews/addressList/index.wxss */
+.b-rr {
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+.adress {
+  padding: 30rpx;
+  padding-bottom: 300rpx;
+}
+
+.btn {
+  position: fixed;
+  width: 90%;
+  bottom: 160rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.item {
+  padding: 40rpx;
+  background-color: #fff;
+  line-height: 1;
+}
+
+.no_adress {
+  padding-top: 160rpx;
+  line-height: 1;
+  text-align: center;
+}
+
+.item   .van-icon {
+  margin-right: 15rpx;
+}
+
+.item .left {
+  width: 85%;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.item .left .pss {
+  font-size: 26rpx;
+  line-height: 36rpx;
+}
+
+.item .left .pss text {
+  background-color: #fae4e6;
+  display: inline-block;
+  padding: 0 15rpx;
+  border-radius: 18rpx;
+  margin-left: 10rpx;
+  color: #c2202d;
+}
+
+.item .username {
+  margin-bottom: 22rpx;
+}
+
+.item  .username text:first-child {
+  font-size: 34rpx;
+  margin-right: 30rpx;
+}
+
+.item  .username text:last-child {
+  font-size: 28rpx;
+  color: #9c9c9c;
+}
+
+.no_adress image {
+  display: block;
+  margin: 0 auto;
+  width: 350rpx;
+  height: 240rpx;
+  margin-bottom: 36rpx;
+}
+
+.no_adress view {
+  font-size: 32rpx;
+  text-indent: 1em;
+}

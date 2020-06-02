@@ -21,13 +21,24 @@
   </van-grid-item>
 </van-grid>
 <van-grid column-num="2" clickable>
-  <van-grid-item use-slot wx:for="{{ shortList }}" url="{{item.url}}" wx:key="url">
-    <view class="title {{!index ? 'bule' : 'red'}}">{{item.title}}
-      <text>{{item.tag}} ></text>
+  <van-grid-item use-slot url="/views/indexNavs/womenVideos/index">
+    <view class="title bule}}">女装短视频
+      <text>品牌 ></text>
     </view>
     <view class="flex j-b videos">
-      <view wx:for="{{item.imgs}}" wx:for-item="itemson" wx:key="itemson" class="items">
-        <image src="{{itemson}}" mode="widthFix"></image>
+      <view wx:for="{{shortList.woman}}" wx:key="id" class="items">
+        <image src="{{item.headurl}}" mode="widthFix"></image>
+        <image src="http://m.17huo.com/public/images/plays.png" mode="widthFix" class="play"></image>
+      </view>
+    </view>
+  </van-grid-item>
+  <van-grid-item use-slot url="/views/indexNavs/menVideos/index">
+    <view class="title red}}">男装短视频
+      <text>爆款 ></text>
+    </view>
+    <view class="flex j-b videos">
+      <view wx:for="{{shortList.man}}" wx:key="id" class="items">
+        <image src="{{item.headurl}}" mode="widthFix"></image>
         <image src="http://m.17huo.com/public/images/plays.png" mode="widthFix" class="play"></image>
       </view>
     </view>
@@ -41,3 +52,4 @@
   </van-tabs>
 </van-sticky>
 <card-list list="{{list}}" id="list"></card-list>
+<van-divider contentPosition="center">{{scrollLoading ? '加载中...' : '已经到底啦！'}}</van-divider>

@@ -1,7 +1,8 @@
 <top-mune tabList="{{tabList}}" bc="linear-gradient(to right, #31c19d, #2ee7a4)" bindmyevent="taptabs"></top-mune>
 <van-sticky> 
-  <van-tabs active="全部" sticky bind:change="changes" tab-active-class="tabActive te" swipe-threshold="{{5}}"  border="{{false}}">
-    <van-tab title="{{item}}" name="{{item}}" wx:for="{{timeList}}" wx:key="index"></van-tab>
+  <van-tabs active="{{active}}" sticky bind:click="changes" tab-active-class="tabActive te" swipe-threshold="{{5}}"  border="{{false}}">
+    <van-tab title="{{item.name}}" name="{{item.val}}" wx:for="{{timeList}}" wx:key="index"></van-tab>
   </van-tabs>
 </van-sticky>
 <card-list list="{{list}}"></card-list>
+<van-divider contentPosition="center">{{scrollLoading ? '加载中...' : '已经到底啦！'}}</van-divider>
