@@ -142,10 +142,11 @@ Page({
   },
   initShopcar() {
     userShopCar().then(res=>{
-      let list=res.data;
+      let list=res.data
       list.map(item => {
         item.selectAll = 0;
         item.idList = [];
+        item.list = item.list.filter(item=>item.sku_list.some(it => it.num > 0))
       })
       console.log(list)
       this.setData({

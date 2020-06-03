@@ -109,7 +109,7 @@ Page({
     }
     userPayByBalance(data).then(res => {
       if (!res.code) {
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../paySuccess/index',
         })
       }
