@@ -1,1 +1,137 @@
-/* userViews/confirmationOrder/index.wxss */
+.cOrder {
+  padding: 30rpx;
+  padding-bottom: 150rpx;
+}
+
+.initAdress {
+  background-color: #fff;
+  font-size: 26rpx;
+  color: #909090;
+  line-height: 36rpx;
+  margin-bottom: 28rpx;
+  padding: 36rpx 25rpx 35rpx 36rpx;
+  border-radius: 20rpx;
+}
+
+.initAdress .left {
+  flex: 1;
+  margin-right: 90rpx;
+}
+
+.initAdress .noadress {
+  font-size: 30rpx;
+  line-height: 120rpx;
+  color: #909090;
+  min-height: 120rpx;
+  text-align: center;
+}
+
+.initAdress .usermsg {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1;
+  margin-bottom: 20rpx;
+}
+
+.initAdress .usermsg text {
+  font-size: 34rpx;
+  margin-right: 30rpx;
+}
+
+.cOrder  .list {
+  border-radius: 20rpx;
+  background-color: #fff;
+  padding: 35rpx;
+}
+
+.cOrder  .list .othemsg {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.list .othemsg .van-cell {
+  padding: 8rpx 0;
+}
+
+.list .othemsg  .allJS {
+  text-align: right;
+  margin: 40rpx 0 15rpx;
+}
+
+.othemsg  .allJS  text:first-child {
+  color: #909090;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.othemsg  .allJS text:last-child {
+  color: #c2202d;
+}
+
+.cOrder  .list .hhh {
+  font-size: 32rpx;
+  line-height: 1;
+  font-weight: 500;
+  margin-bottom: 58rpx;
+}
+
+.cOrder  .list > .flex {
+  margin-bottom: 58rpx;
+}
+
+.list > .flex .right {
+  flex: 1;
+  min-width: 0;
+}
+
+.list > .flex .img {
+  position: relative;
+  width: 180rpx;
+  height: 180rpx;
+  overflow: hidden;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+
+.list > .flex image {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.list > .flex .name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  line-height: 30rpx;
+}
+
+.list > .flex .skuss {
+  background-color: #f4f4f4;
+  font-size: 24rpx;
+  color: #929292;
+  line-height: 42rpx;
+  padding:0 10rpx;
+}
+
+.list > .flex .price {
+  font-size: 30rpx;
+  color: #333;
+  margin-top: 30rpx;
+}
+
+.cOrder .paymode {
+  margin-top: 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.cOrder .skuss {
+  padding: 0 10px;
+}
+
+.cOrder .van-dialog {
+  padding: 0 20rpx;
+}

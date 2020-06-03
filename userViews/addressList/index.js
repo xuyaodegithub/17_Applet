@@ -21,7 +21,7 @@ Page({
   onLoad: function(options) {
     this.setData({
       hasback: options.hasback ? true : false
-    }, this.initList)
+    })
   },
   initList() {
     adressList().then(res => {
@@ -93,7 +93,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.initList()
   },
 
   /**

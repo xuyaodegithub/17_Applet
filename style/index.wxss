@@ -1,0 +1,13 @@
+.cOrder .van-icon-wechat:before {
+    font-size: 40rpx;
+    color: #00b802;
+}
+.cOrder .van-icon-gold-coin:before {
+    font-size: 40rpx;
+    color: #c21c32;
+}
+.tebie .van-cell__title{
+    flex: inherit;
+    width: 30%;
+    margin-right: 20rpx;
+}

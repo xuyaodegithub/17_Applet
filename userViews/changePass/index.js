@@ -4,20 +4,20 @@ import {
   userSetPassword,
   userPhone
 } from '../../fetch/user.js';
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    info:{
+    info: {
       sms: '',
       pass: '',
       pass2: '',
     },
     timer: 0,
-    phone: app.userInfoData.phone
+    phone: ''
     // phone: ''
   },
 
@@ -25,30 +25,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(this.data.phone)
+    this.setData({ phone: app.userInfoData.phone})
   },
   sendSms() {
     if (this.data.timer > 0) return;
     userSendSms().then(res => {
-     if(!res.code){
-       wx.showToast({
-         title: '短信已发送',
-         icon: 'none'
-       });
-       this.setData({
-         timer: 60
-       }, this.setTimer)
-     }
+      if (!res.code) {
+        wx.showToast({
+          title: '短信已发送',
+          icon: 'none'
+        });
+        this.setData({
+          timer: 60
+        }, this.setTimer)
+      }
     })
   },
   setTimer() {
     let times = setInterval(() => {
       this.setData({
-        timer: this.data.timer-1
+        timer: this.data.timer - 1
       })
       if (this.data.timer < 1) clearInterval(times)
-      console.log(this.data.timer)
-    },1000)
+    }, 1000)
   },
   savePass() {
     const info = this.data.info
@@ -82,30 +81,35 @@ Page({
         title: '支付密码设置成功',
         icon: 'none'
       });
+      app.userInfoData.pay_password_setted = 1;
       setTimeout(() => {
         wx.navigateBack()
       }, 2000)
     })
   },
-  getPhoneNumber(e){
+  getPhoneNumber(e) {
     console.log(e.detail)
-    if (e.detail.errMsg ==='getPhoneNumber:ok'){
+    if (e.detail.errMsg === 'getPhoneNumber:ok') {
       let data = {
         iv: e.detail.iv,
         encryptedData: e.detail.encryptedData
       }
       userPhone(data).then(res => {
         app.userInfoData.phone = res.data;
-        this.setData({ phone: res.data }, this.sendSms)
+        this.setData({
+          phone: res.data
+        }, this.sendSms)
       })
     }
   },
-  change(e){
+  change(e) {
     const [val, idx, info] = [e.detail, e.target.dataset.idx, this.data.info]
     if (idx === 1) info.sms = val;
     else if (idx === 2) info.pass = val;
     else info.pass2 = val;
-    this.setData({ info})
+    this.setData({
+      info
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

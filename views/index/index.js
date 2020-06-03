@@ -1,5 +1,8 @@
 const [http, app] = [require('../../fetch/request.js'), getApp()];
-import { initIndex, initIndexVideo } from '../../fetch/index.js';
+import {
+  initIndex,
+  initIndexVideo
+} from '../../fetch/index.js';
 // views/index/index.js
 Page({
 
@@ -55,25 +58,37 @@ Page({
   },
   changes(e) {
     // console.log(e.detail.name, e.detail.title, this.data.active)
-    wx.pageScrollTo({
-      scrollTop: this.data.listTop,
-    })
-    this.setData({
-      active: e.detail.name,
-      page: 1,
-      scrollLoading: true,
-    }, this.initData)
+    if (this.data.active === e.detail.name)return;
+    this.setData({ active: e.detail.name})
+    if (this.data.listTop > 0){
+      this.setListTop()
+    }else{
+      let _self = this;
+      const query = wx.createSelectorQuery()
+      query.select('#list').boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(function (res) {
+        // console.log(res)
+        // res[0].top       // #the-id节点的上边界坐标
+        // res[1].scrollTop // 显示区域的竖直滚动位置
+        _self.setData({
+          listTop: res[0].top - 44
+        })
+        _self.setListTop()
+      })
+    }
+  
   },
   initData() {
     const data = {
-        page: this.data.page,
-        active_tab: this.data.active
+      page: this.data.page,
+      active_tab: this.data.active
     }
     initIndex(data).then(res => {
       this.setData({
         list: this.data.page === 1 ? res.data : [...this.data.list, ...res.data],
         scrollLoading: res.data.length < 10 ? false : true
-      }, this.setListTop)
+      })
     })
   },
   initVideoList() {
@@ -85,21 +100,14 @@ Page({
     })
   },
   setListTop() {
-    if (this.data.listTop > 0) return;
-    let _self = this;
-    wx.nextTick(() => {
-      const query = wx.createSelectorQuery()
-      query.select('#list').boundingClientRect()
-      query.selectViewport().scrollOffset()
-      query.exec(function(res) {
-        // console.log(res)
-        // res[0].top       // #the-id节点的上边界坐标
-        // res[1].scrollTop // 显示区域的竖直滚动位置
-        _self.setData({
-          listTop: res[0].top - 44
-        })
-      })
+    wx.pageScrollTo({
+      scrollTop: this.data.listTop,
     })
+    this.setData({
+      active: this.data.active,
+      page: 1,
+      scrollLoading: true,
+    }, this.initData)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -135,7 +143,7 @@ Page({
   onPullDownRefresh: function() {
     this.setData({
       page: 1,
-      active_tab: 'recommand'
+      active: 'recommand'
     })
     this.initData();
     this.initVideoList();

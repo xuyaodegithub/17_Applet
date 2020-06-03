@@ -1,13 +1,9 @@
 {
   "component": false,
   "usingComponents": {
-    "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-field": "@vant/weapp/field/index",
-    "van-checkbox": "@vant/weapp/checkbox/index",
-    "van-area": "@vant/weapp/area/index"
+   
   },
-  "navigationBarTitleText": "地址详情",
+  "navigationBarTitleText": "支付成功",
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTextStyle": "black",
   "backgroundColor": "#eee",

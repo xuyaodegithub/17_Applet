@@ -148,8 +148,9 @@ Page({
       if (type===1) {
         wx.showToast({ title: '添加购物车成功！', icon: 'none' })
       }else{
+        wx.setStorageSync('carIds', [res.data])
         wx.navigateTo({
-          url: `/userViews/confirmOrder/index?id=${res.data}`,
+          url: `/userViews/confirmationOrder/index`,
         })
       }
     })

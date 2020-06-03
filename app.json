@@ -31,7 +31,8 @@
         "changePass/index",
         "balanceHistory/index",
         "confirmationOrder/index",
-        "saveAdress/index"
+        "saveAdress/index",
+        "paySuccess/index"
       ]
     }
   ],

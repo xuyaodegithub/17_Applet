@@ -45,7 +45,7 @@
   </van-grid-item>
 </van-grid>
 <van-sticky>
-  <van-tabs active="{{active}}" sticky bind:change="changes" tab-active-class="tabActive te">
+  <van-tabs active="{{active}}" sticky bind:click="changes" tab-active-class="tabActive te">
     <van-tab title="好货推荐" name="recommand"></van-tab>
     <van-tab title="最新商品" name="newproducts"></van-tab>
     <van-tab title="爆款商品" name="baokuan"></van-tab>

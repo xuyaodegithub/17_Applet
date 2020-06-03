@@ -161,7 +161,6 @@ Page({
     if (s) wx.showToast({ title: '请先选择商品', icon: 'none' });
     if (onlyone > 1 || s)return;
     const sItem = list.find(item=>item.idList.length>0)
-    console.log(11)
     wx.setStorageSync('carIds',sItem.idList)
     wx.navigateTo({
       url: '/userViews/confirmationOrder/index',

@@ -1,2 +1,62 @@
-<!--userViews/confirmationOrder/index.wxml-->
-<text>userViews/confirmationOrder/index.wxml</text>
+<wxs src="../../filters/filters.wxs" module="filter"></wxs>
+<view class="cOrder">
+  <view class="flex initAdress a-i" bindtap="changeAdree">
+    <view class="left" wx:if="{{orderAdress.consignee}}">
+      <view class="usermsg">
+        <text>{{orderAdress.consignee}}</text>
+        <text>{{orderAdress.mobile}}</text>
+      </view>
+      <view class="ptsg">{{orderAdress.address}} {{orderAdress.addr}}</view>
+    </view>
+    <view class="left noadress" wx:else>请先添加收货地址</view>
+    <van-icon name="arrow" />
+  </view>
+  <view class="list">
+    <view class="hhh">{{proMsg.preview_items[0].city_name}}货源</view>
+    <view class="flex" wx:for="{{proMsg.preview_items[0].list}}" wx:key="id">
+      <view class="img">
+        <image src="{{item.product_img}}" alt="" mode="widthFix" />
+      </view>
+      <view class="right">
+        <view class="name over">{{item.product_name}}</view>
+        <view wx:for="{{item.sku_list}}" wx:key="idx" wx:for-item="items" wx:for-index="idx" class="flex skuss j-b">
+          <text>{{items.color}}</text>
+          <text>{{items.size}}</text>
+          <text>x {{items.num}}</text>
+        </view>
+        <view class="flex price j-b">
+          <text>￥{{item.nowprice}}</text>
+          <text>x{{item.num}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="othemsg">
+      <van-cell-group :border="false">
+        <van-cell title="配送快递" value="{{proMsg.express_info.company_name ? proMsg.express_info.company_name+'  ￥'+proMsg.express_info.money : '暂未信息'}}" border="{{false}}" />
+        <van-cell title="{{item.name}}" value="￥{{filter.tofixed(item.price)}} x {{item.num}}" border="{{false}}" wx:for="{{proMsg.services}}" wx:key="index" />
+        <!--                    <van-cell title="一起火服务" value="1.00 x 2" :border="false"/>-->
+        <van-cell title="商品价值" value="共 {{allnum}} 件，小计：￥{{filter.tofixed(allPrice)}}" border="{{false}}" class="tebie" />
+        <!--                    <view class="allJS"><span>共 {{allNum}} </span><span>{{allPrice.toFixed(2)}}</span></view>-->
+      </van-cell-group>
+    </view>
+  </view>
+  <view class="paymode">
+    <van-radio-group value="{{radio}}" checked-color="#C4121E">
+      <van-cell-group>
+        <van-cell title="微信支付" clickable data-name="{{1}}" bind:click="onClick" icon="wechat">
+          <van-radio slot="right-icon" name="{{1}}" checked-color="#c2202d"/>
+        </van-cell>
+        <van-cell title="余额支付（ {{userInfo.money}} 元）" clickable data-name="{{2}}" bind:click="onClick" icon="gold-coin">
+          <van-radio slot="right-icon" name="{{2}}"  checked-color="#c2202d"/>
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group>
+  </view>
+  <van-submit-bar loading="{{loading}}" price="{{upprice}}" button-text="提交订单" bind:submit="onSubmit">
+    <text style="flex: 1;text-align: right;color:#909090; align-self: center;">共 {{allnum}} 件</text>
+  </van-submit-bar>
+  <!-- 密码输入框 -->
+  <van-dialog show="{{showKeyboard}}" use-slot title="支付密码" show-cancel-button bind:confirm="confirm" bind:cancel="cancel">
+    <van-field value="{{value}}" placeholder="请输入支付密码" type="password" bindchange="change" auto-focus />
+  </van-dialog>
+</view>

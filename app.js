@@ -2,7 +2,7 @@ const utils=require('./utils/util')
 //app.js
 App({
   baseUrl: 'https://m.17huo.com',
-  userInfoData: '',
+  userInfoData: {},
   token:'',
   loginInfoCallback:[],
   getUserInfo(callback) {// 获取用户信息
