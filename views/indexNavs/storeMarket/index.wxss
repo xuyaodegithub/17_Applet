@@ -1,0 +1,41 @@
+.header {
+  background-image: url(http://m.17huo.com/public/images/stalls_banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 68rpx 40rpx 35rpx;
+  line-height: 54rpx;
+  color: #fff;
+}
+
+.header .name {
+  font-size: 44rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.header text {
+  display: inline-block;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  padding: 0 15rpx;
+  border-radius: 20rpx;
+  background-color: rgba(238, 59, 57);
+}
+
+.header text:last-child {
+  background-color: rgba(254, 136, 0);
+  margin-left: 20rpx;
+}
+
+.tab1 {
+  padding: 20rpx 70rpx 0;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  /* background-color: #fff; */
+}
+
+.actives {
+  color: #ce2b31;
+  border-bottom: 2px solid #ce2b31;
+}

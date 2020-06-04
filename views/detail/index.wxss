@@ -1,5 +1,8 @@
 /* views/detail/index.wxss */
-
+page{
+  overflow-x: hidden;
+  width: 100%;
+}
 .des {
   padding: 40rpx 30rpx;
   margin-bottom: 25rpx;

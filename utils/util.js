@@ -69,5 +69,5 @@ const doHandleMonth = month => {    
 module.exports = {
   formatTime: formatTime,
   uerCode,
-  getDay
+  getDay,
 }

@@ -19,27 +19,6 @@
 .f-w{
   flex-wrap: wrap;
 }
-.fixed{
-  position: fixed;
-  width: 90rpx;
-  /* line-height:100rpx; */
-  font-size: 32rpx;
-  text-align: center;
-  bottom: 40rpx;
-  right: 30rpx;
-  z-index: 999;
-  color: #fff;
-  background-color: #333;
-  opacity: 0.8;
-  border-radius: 50%;
-  padding: 10rpx;
-}
-.fixed image{
-  display: block;
-  margin: 0 auto;
-  width:54rpx;
-  height:44rpx;
-}
 /*文本溢出 出现省略号*/
 .over{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .delete{text-decoration:line-through;}

@@ -1,0 +1,207 @@
+  .tuij,
+  .adresss,
+  .list {
+    position: relative;
+    top: -40rpx;
+  }
+
+  .adresss .flex {
+    background-color: #fff;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    font-size: 26rpx;
+    line-height: 36rpx;
+    color: #9C9C9C;
+
+  }
+
+  .adresss .flex>view {
+    margin-left: 30rpx;
+  }
+
+  .adresss .flex .name {
+    font-size: 34rpx;
+    line-height: 1;
+    margin-bottom: 20rpx;
+    color: #333;
+
+
+  }
+
+  .adresss .name text {
+    font-size: 30rpx;
+    margin-left: 30rpx;
+  }
+
+  .header {
+    padding: 100rpx 0 110rpx;
+    background: linear-gradient(to right bottom, #C30000, #FD5F42);
+    text-align: center;
+    line-height: 1;
+    color: #fff;
+
+
+  }
+
+  .header .pay {
+    font-size: 26rpx;
+    justify-content: center;
+
+
+  }
+
+  .pay .van-count-down {
+    display: inline-block;
+    color: #fff;
+  }
+
+  .pay text:first-child {
+    margin-right: 30rpx;
+  }
+
+  .header .hhh {
+    font-size: 48rpx;
+    margin-bottom: 30rpx;
+    justify-content: center;
+
+
+  }
+
+  .hhh .van-icon {
+    margin-right: 15rpx;
+    vertical-align: middle;
+  }
+
+  .list {
+    padding: 30rpx;
+
+  }
+
+  .list .othemsg {
+    font-size: 28rpx;
+    color: #333;
+
+
+  }
+
+  .othemsg .van-cell {
+    padding: 8rpx 0;
+  }
+
+  .othemsg .allJS {
+    text-align: right;
+    margin: 40rpx 0 15rpx;
+
+
+  }
+
+  .allJS text:first-child {
+    color: #909090;
+    display: inline-block;
+    margin-right: 20rpx;
+  }
+
+  .allJS text:last-child {
+    color: #C2202D;
+  }
+
+  .list .pros {
+    margin-bottom: 58rpx;
+
+  }
+
+  .pros .right {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pros .img {
+    position: relative;
+    width: 180rpx;
+    height: 180rpx;
+    overflow: hidden;
+    border-radius: 20rpx;
+    margin-right: 20rpx;
+
+  }
+
+  .img image {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .pros .name {
+    font-size: 28rpx;
+    color: #333;
+    margin-bottom: 20rpx;
+    line-height: 30rpx;
+  }
+
+  .pros .skus {
+    background-color: #F4F4F4;
+    font-size: 24rpx;
+    color: #929292;
+    line-height: 42rpx;
+  }
+
+  .pros .price {
+    font-size: 30rpx;
+    color: #333;
+    margin-top: 40rpx;
+
+
+  }
+
+  .price text:first-child {
+    font-size: 32rpx;
+  }
+
+  .price text:last-child {
+    color: #E8BEAB;
+  }
+
+  .list>view {
+    margin-bottom: 30rpx;
+    background-color: #fff;
+    padding: 32rpx 36rpx;
+    border-radius: 20rpx;
+
+  }
+
+  .list .top {
+    margin-bottom: 58rpx;
+    font-size: 32rpx;
+    line-height: 1;
+  }
+
+  h3 .types {
+    color: #C2202D;
+  }
+
+  .list .btn {
+    text-align: right;
+    margin-top: 50rpx;
+    padding-bottom: 30rpx;
+
+
+  }
+
+  .btn .van-button {
+    margin-left: 22rpx;
+    padding: 0 50rpx;
+    font-size: 28rpx;
+    line-height: 60rpx;
+  }
+
+  .btn .active {
+    color: #C2202D;
+    border-color: #C2202D;
+  }
+
+  .tuij,
+  .adresss {
+    padding: 0 30rpx;
+  }

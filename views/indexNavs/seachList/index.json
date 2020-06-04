@@ -1,0 +1,16 @@
+{
+  "component": false,
+  "usingComponents": {
+    "van-field": "@vant/weapp/field",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index"
+  },
+  "navigationBarTitleText": "商品搜索",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#eee",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
+  "disableScroll": false
+}

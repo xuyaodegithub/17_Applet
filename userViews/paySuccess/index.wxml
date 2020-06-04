@@ -1,1 +1,8 @@
-支付成功页面
+<view class="paySuccess">
+  <image src="http://m.17huo.com/public/userCenter/img/paysuccess.67e289ac.png" mode="widthFix" />
+    <view>支付成功</view>
+    <view class="btns flex j-c">
+      <view class="btn b-rr" bindtap="goindex">回首页逛逛</view>
+      <view class="btn b-rr" bindtap="goOrderlist">查看订单</view>
+    </view>
+</view>

@@ -12,13 +12,14 @@ Page({
     finished: false,
     list: [],
     page: 1,
-    userInfo: app.userInfoData
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({userInfo:app.userInfoData})
     this.initList()
   },
   initList() {

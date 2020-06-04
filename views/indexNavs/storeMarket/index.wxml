@@ -1,0 +1,10 @@
+<view class="header">
+  <view class="name">{{storeInfo.sellername}}</view>
+  <text>{{storeInfo.cityname}}</text>
+  <text>{{storeInfo.year}}年店</text>
+</view>
+<view class="tab1 flex a-i">
+  <view class="item actives">推荐档口</view>
+</view>
+<card-list list="{{list}}"/>
+<van-divider contentPosition="center">{{loadingScroll ? '加载中...' : '已经到底啦！'}}</van-divider>

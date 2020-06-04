@@ -1,7 +1,7 @@
 <view class="wear" style="background:{{bc}};">
   <view class="seach" wx:if="{{seach}}">
     <icon class="icon-small" type="search" size="38rpx" color="#fff"></icon>
-    <input placeholder="{{placeHolder}}" confirm-type="search" bindconfirm="confirm" placeholder-style="color:#fff;" />
+    <input placeholder="{{placeHolder}}" confirm-type="search" bindconfirm="confirm" placeholder-style="color:#fff;" bindinput="changeKeys"/>
   </view>
   <view class="flex a-i">
     <view class="tab {{selectIdx===index ? 'active' : ''}}" wx:for="{{tabList}}" wx:key="index" data-cid="{{item.cid}}" data-idx="{{index}}" bindtap="seachTab">{{item.name}}</view>

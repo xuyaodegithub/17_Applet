@@ -3,7 +3,6 @@ import {
   initIndex,
   initIndexVideo
 } from '../../fetch/index.js';
-// views/index/index.js
 Page({
 
   /**
@@ -11,7 +10,7 @@ Page({
    */
   data: {
     value: '',
-    active: 'recommand',
+    active: 'newproducts',
     list: [],
     gridList: [{
         text: '女装',
@@ -49,7 +48,9 @@ Page({
     // console.log(this.route)
   },
   seach(e) {
-    console.log(e.detail)
+    wx.navigateTo({
+      url: `../indexNavs/seachList/index?words=${e.detail}`,
+    })
   },
   goserviceDes() {
     wx.navigateTo({
@@ -59,24 +60,32 @@ Page({
   changes(e) {
     // console.log(e.detail.name, e.detail.title, this.data.active)
     if (this.data.active === e.detail.name)return;
-    this.setData({ active: e.detail.name})
-    if (this.data.listTop > 0){
-      this.setListTop()
-    }else{
-      let _self = this;
-      const query = wx.createSelectorQuery()
-      query.select('#list').boundingClientRect()
-      query.selectViewport().scrollOffset()
-      query.exec(function (res) {
-        // console.log(res)
-        // res[0].top       // #the-id节点的上边界坐标
-        // res[1].scrollTop // 显示区域的竖直滚动位置
-        _self.setData({
-          listTop: res[0].top - 44
-        })
-        _self.setListTop()
-      })
-    }
+    wx.pageScrollTo({
+      scrollTop: 480,
+    })
+    this.setData({
+      active: this.data.active,
+      page: 1,
+      scrollLoading: true,
+      active:e.detail.name
+    }, this.initData)
+    // if (this.data.listTop > 0){
+    //   this.setListTop()
+    // }else{
+    //   let _self = this;
+    //   const query = wx.createSelectorQuery()
+    //   query.select('#list').boundingClientRect()
+    //   query.selectViewport().scrollOffset()
+    //   query.exec(function (res) {
+    //     // console.log(res)
+    //     // res[0].top       // #the-id节点的上边界坐标
+    //     // res[1].scrollTop // 显示区域的竖直滚动位置
+    //     _self.setData({
+    //       listTop: res[0].top - 44
+    //     })
+    //     _self.setListTop()
+    //   })
+    // }
   
   },
   initData() {
@@ -100,14 +109,7 @@ Page({
     })
   },
   setListTop() {
-    wx.pageScrollTo({
-      scrollTop: this.data.listTop,
-    })
-    this.setData({
-      active: this.data.active,
-      page: 1,
-      scrollLoading: true,
-    }, this.initData)
+  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -143,7 +145,7 @@ Page({
   onPullDownRefresh: function() {
     this.setData({
       page: 1,
-      active: 'recommand'
+      active: 'newproducts'
     })
     this.initData();
     this.initVideoList();

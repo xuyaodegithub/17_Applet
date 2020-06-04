@@ -53,10 +53,10 @@
     </van-radio-group>
   </view>
   <van-submit-bar loading="{{loading}}" price="{{upprice}}" button-text="提交订单" bind:submit="onSubmit">
-    <text style="flex: 1;text-align: right;color:#909090; align-self: center;">共 {{allnum}} 件</text>
+    <text style="text-align: right;color:#909090; align-self: center;min-width:150rpx;">共 {{allnum}} 件</text>
   </van-submit-bar>
   <!-- 密码输入框 -->
   <van-dialog show="{{showKeyboard}}" use-slot title="支付密码" show-cancel-button bind:confirm="confirm" bind:cancel="cancel">
-    <van-field value="{{value}}" placeholder="请输入支付密码" type="password" bindchange="change" auto-focus />
+    <van-field value="{{value}}" placeholder="请输入支付密码" type="password" bindchange="change" />
   </van-dialog>
 </view>

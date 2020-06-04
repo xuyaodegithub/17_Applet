@@ -1,0 +1,47 @@
+<van-search value="{{ words }}" placeholder="请输入搜索关键词" shape="round" clearable bind:search="seach" background="#fff" />
+<view class="banner" bindtap="goserviceDes">
+  <image src="http://m.17huo.com/public/images/m_banner.jpg" mode="widthFix"></image>
+</view>
+<van-grid column-num="2" clickable>
+  <van-grid-item use-slot url="/views/indexNavs/womenVideos/index">
+    <view class="title bule}}">女装短视频
+      <text>品牌 ></text>
+    </view>
+    <view class="flex j-b videos">
+      <view wx:for="{{shortList.woman}}" wx:key="id" class="items">
+        <image src="{{item.headurl}}" mode="widthFix"></image>
+        <image src="http://m.17huo.com/public/images/plays.png" mode="widthFix" class="play"></image>
+      </view>
+    </view>
+  </van-grid-item>
+  <van-grid-item use-slot url="/views/indexNavs/menVideos/index">
+    <view class="title red}}">男装短视频
+      <text>爆款 ></text>
+    </view>
+    <view class="flex j-b videos">
+      <view wx:for="{{shortList.man}}" wx:key="id" class="items">
+        <image src="{{item.headurl}}" mode="widthFix"></image>
+        <image src="http://m.17huo.com/public/images/plays.png" mode="widthFix" class="play"></image>
+      </view>
+    </view>
+  </van-grid-item>
+</van-grid>
+<view class='list flex f-w'>
+  <view wx:for="{{list}}" wx:key="id" class="item" data-id="{{item.id}}" bindtap="toDetail">
+    <view class="imgs">
+      <image src="{{item.headurl}}" mode="widthFix"></image>
+    </view>
+    <view class="over">{{item.name}}</view>
+    <view class="store over">{{item.marketname}}-{{item.sellername}}</view>
+    <view class="price rd">￥{{item.price}}</view>
+    <view class="flex"> 
+      <text>首单包邮</text>
+      <text>21元券</text>
+      <text>一件代发</text>
+    </view>
+  </view>
+</view>
+<van-divider contentPosition="center">{{loadingScroll ? '加载中...' : '已经到底啦！'}}</van-divider>
+<view class="fixed" wx:if="{{showTop}}" bindtap="goTop">
+  <image src="http://m.17huo.com/public/images/backTop.png" mode="widthFix"></image>
+</view>

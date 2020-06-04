@@ -1,0 +1,143 @@
+.banner {
+  padding: 20rpx 24rpx 30rpx;
+  background-color: #fff;
+  position: relative;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.banner image {
+  display: block;
+  width: 100%;
+  border-radius: 20rpx;
+}
+
+.van-grid image {
+  width: 100rpx;
+  margin-bottom: 30rpx;
+}
+
+.van-grid {
+  font-size: 26rpx;
+  line-height: 1;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: bold;
+  line-height: 36rpx;
+  margin-bottom: 34rpx;
+}
+
+.title text {
+  vertical-align: center;
+  display: inline-block;
+  padding: 0 10rpx;
+  border: 1px solid #333;
+  font-size: 26rpx;
+  border-radius: 18rpx;
+  margin-left: 20rpx;
+}
+
+.title.bule text {
+  color: #f72f6c;
+  border-color: #f72f6c;
+}
+
+.title.red text {
+  color: #2f9afc;
+  border-color: #2f9afc;
+}
+
+.videos .items {
+  position: relative;
+  margin: 0 10rpx;
+}
+
+.videos image {
+  width: 150rpx;
+  margin: 0 auto;
+}
+
+.videos .play,
+.list .play {
+  width: 50rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tabActive.te {
+  color: #f72f6c;
+}
+
+.list {
+  padding: 20rpx;
+}
+
+.list .item {
+  width: 335rpx;
+  padding-bottom: 36rpx;
+  margin: 0 10rpx 24rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+  background-color: #fff;
+  font-size: 24rpx;
+  line-height: 1;
+}
+
+.item .imgs {
+  height: 335rpx;
+  position: relative;
+  overflow: hidden;
+}
+.item .imgs ~ view{
+  padding:0 20rpx;
+}
+.item .imgs image {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.item .over {
+  line-height: 58rpx;
+  color: #333;
+}
+
+.item .store {
+  color: #9A9A9A;
+  margin-bottom: 26rpx;
+  line-height: 1;
+}
+
+.item .price {
+  font-size: 32rpx;
+  margin-bottom: 25rpx;
+}
+
+.item text {
+  font-size: 20rpx;
+  line-height: 30rpx;
+  border: 1px solid #CC2A39;
+  color: #CC2A39;
+  margin-right: 10rpx;
+  padding: 0 5rpx;
+  white-space: nowrap;
+}
+.fixed{
+  position: fixed;
+  right: 40rpx;
+  width: 80rpx;
+  height: 80rpx;
+  bottom: 60rpx;
+}
+.fixed image{
+  display: block;
+  width: 100%;
+}

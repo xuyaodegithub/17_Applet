@@ -161,10 +161,14 @@ Page({
       return
     }
     if (this.data.pageId) {
-      if (this.data.radio === 1) jsApiCall(payMoney, this.pageId, this);
+      if (this.data.radio === 1) {
+        this.setData({ loading: true })
+        this.initPay();
+      }
       else this.setData({ showKeyboard:true})
       return
     }
+    this.setData({ loading: true })
     let data = {
       cart_item_ids: this.data.carId,
       "receiver_info": {
@@ -182,7 +186,7 @@ Page({
           // jsApiCall(payMoney, this.pageId, this)
           this.initPay()
         } else {
-          this.setData({ showKeyboard:true})
+          this.setData({ showKeyboard: true, loading: false})
         }
       }
 
@@ -206,7 +210,10 @@ Page({
             url: '../paySuccess/index',
           })
         },
-        fail(res) { }
+        fail(res) { },
+        complete:()=>{
+          this.setData({ loading: false })
+        }
       })
     })
   },

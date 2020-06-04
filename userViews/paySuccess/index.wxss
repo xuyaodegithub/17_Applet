@@ -1,1 +1,32 @@
-/* userViews/paySuccess/index.wxss */
+.paySuccess {
+  padding: 80rpx 30rpx;
+}
+
+.paySuccess view {
+  font-size: 30rpx;
+  margin: 40rpx 0 64rpx;
+  text-align: center;
+}
+
+.paySuccess > image {
+  display: block;
+  width: 500rpx;
+  margin: 0 auto;
+}
+
+.paySuccess .btns {
+  margin-bottom: 110rpx;
+}
+
+.paySuccess .btn {
+  width: 308rpx;
+  font-size: 30rpx;
+  line-height: 76rpx;
+  text-align: center;
+  color: #9C9C9C;
+  border: 1px solid #9C9C9C;
+}
+
+.paySuccess .btn:first-child {
+  margin-right: 24rpx;
+}

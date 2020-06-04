@@ -1,0 +1,58 @@
+ <wxs src="../../filters/filters.wxs" module="filter"></wxs>
+ <view class="orderDetial">
+ 	<view class="header">
+ 		<view class="hhh flex a-i">
+ 			<van-icon name="{{filter.allIcon(proMsg)}}" size="50rpx" />
+ 			{{ filter.orderStatus(proMsg,1)}}
+ 		</view>
+ 		<view class="pay flex a-i" wx:if="{{!proMsg.is_pay}}">
+ 			<text>需支付：￥{{filter.tofixed(allMoney)}}</text>
+ 			<!--                <span>剩余时间：<van-count-down :time="time"/></span>-->
+ 		</view>
+ 	</view>
+ 	<view class="adresss">
+ 		<view class="flex">
+ 			<van-icon name="location-o" size="45rpx" />
+ 			<view>
+ 				<view class="name">
+ 					{{proMsg.receiver_name}} <text>{{proMsg.receiver_phone}}</text>
+ 				</view>
+ 				<view class="ppp">{{proMsg.receiver_province}} {{proMsg.receiver_city}} {{proMsg.receiver_district}} {{proMsg.receiver_street}}</view>
+ 			</view>
+ 		</view>
+ 	</view>
+ 	<view class="list">
+ 		<view>
+ 			<view class="top">
+ 				<view class="tpp">{{proMsg.package_id}}</view>
+ 			</view>
+ 			<view class="flex pros" wx:for="{{proMsg.items}}" wx:key="id" bindtap="toDetail" data-id="{{item.product_id}}">
+ 				<view class="img">
+ 					<image src="{{item.product_img}}" mode="widthFix" />
+ 				</view>
+ 				<view class="right">
+ 					<view class="name over">{{item.product_name}}</view>
+ 					<view class="skus">颜色：{{item.color}}； 尺码：{{item.size}}； 数量：{{item.num}}</view>
+ 					<!--                    <p>尺码：{{item.sku.size}}</p>-->
+ 					<view class="flex price j-b a-i">
+ 						<text>￥{{item.product_price}}</text>
+ 						<text>{{item.status_name}}</text>
+ 					</view>
+ 				</view>
+ 			</view>
+ 			<view class="othemsg">
+ 				<van-cell-group border="{{false}}">
+ 					<van-cell title="配送快递" value="{{proMsg.courier_company}} ￥{{proMsg.money_package}}" :border="false" />
+ 					<van-cell title="{{item.name}}" value="￥{{item.price }}  x  {{item.num}}" border="{{false}}" wx:for="{{proMsg.services}}" wx:key="id" />
+ 					<view class="allJS"><text>共 {{ allNum }} 件</text>小计：<text> ￥{{ allprice }} </text>
+ 					</view>
+ 				</van-cell-group>
+ 				<view class="btn" wx:if="{{filter.btnText(proMsg).length>0}}">
+ 					<van-button type="default" round size="small" wx:for="{{filter.btnText(proMsg)}}" wx:key="id" custom-class="{{item.active  ? 'active' : ''}}" bindtap="getInfo" data-item="{{item}}">
+ 						{{item.text}}
+ 					</van-button>
+ 				</view>
+ 			</view>
+ 		</view>
+ 	</view>
+ </view>

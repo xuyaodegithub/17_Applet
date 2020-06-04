@@ -25,10 +25,10 @@ Page({
     }
     userLogin(data).then(res=>{
       app.userInfoData = res.data;
-
+      wx.navigateBack()
     })
     // app.userInfoData = e.detail.userInfo
-    // wx.navigateBack()
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

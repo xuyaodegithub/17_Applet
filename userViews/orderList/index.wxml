@@ -1,0 +1,52 @@
+ <wxs src="../../filters/filters.wxs" module="filter"></wxs>
+ <view class="index">
+        <van-sticky>
+            <van-tabs active="{{activeName}}" title-active-color="#ee0a24" bind:click="change">
+                <van-tab title="全部" name="{{0}}"></van-tab>
+                <van-tab title="待付款" name="{{1}}"></van-tab>
+                <van-tab title="待采购" name="{{2}}"></van-tab>
+                <van-tab title="已发货" name="{{3}}"></van-tab>
+            </van-tabs>
+        </van-sticky>
+        <view class="scroll-view_H" wx:if="{{list.length>0}}">
+            <view class="list">
+                <view wx:for="{{list}}" wx:key="package_id"
+                     bindtap="orderDetail" data-id="{{item.package_id}}">
+                    <view class="top flex j-b a-i">
+                        <view class="hhh">订单编号：{{item['package_id']}}</view>
+                        <text class="types">{{filter.orderStatus(item)}}</text>
+                    </view>
+                    <view class="flex pros" wx:for="{{item.items}}" wx:key="id" wx:for-item="itemson" wx:for-index="idx">
+                        <view class="img"  catchtap="toDetail" data-id="{{itemson.product_id}}">
+                            <image src="{{itemson.product_img}}" mode="widthFix"/>
+                        </view>
+                        <view class="right">
+                            <view class="name over">{{itemson.product_name}}</view>
+                            <view class="ppp">颜色：{{itemson.color}}； 尺码：{{itemson.size}}； 数量：{{itemson.num}}</view>
+                            <!--                    <p>尺码：{{item.sku.size}}</p>-->
+                            <view class="flex price j-b a-i">
+                                <text>￥{{itemson.product_price}}</text>
+                                <text>{{itemson.status_name}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="allJS">
+                        <text>共 {{ filter.allNum(item['items'])}} 件</text>小计：<text>{{filter.Calculation(item.items)}}</text></view>
+                    <view class="btn" wx:if="{{filter.btnText(item).length>0}}">
+                        <van-button type="default" round size="small" wx:for="{{filter.btnText(item)}}" wx:for-item="itembtn" wx:for-index="idx"
+                                    wx:key="idx" custom-class="{{itembtn.active ? 'active' : '' }}"
+                                    catchtap="getInfo"
+                                    data-item="{{item}}"
+                                    data-itemBtn="{{itembtn}}"
+                                    >
+                            {{itembtn.text}}
+                        </van-button>
+                    </view>
+                </view>
+            </view>
+            <van-divider contentPosition="center">{{scrollLoading ? '加载中...' : '已经到底啦！'}}</van-divider>
+        </view>
+        <view class="nomsg" wx:else>
+            暂无订单
+        </view>
+    </view>

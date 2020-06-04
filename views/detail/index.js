@@ -137,6 +137,9 @@ Page({
   },
   goSeller() {
     const id = this.data.sellerInfo.id;
+    wx.navigateTo({
+      url: `../indexNavs/storeMarket/index?id=${id}`,
+    })
   },
   sureUp() {
     const [type, commitInfo] = [this.data.upType, this.data.commitInfo];

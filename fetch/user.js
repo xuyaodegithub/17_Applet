@@ -43,3 +43,15 @@ export const payMoney = (data) => http.beforRqs('/weapp/Weixin/unifiedOrder', da
  * 密码支付
  **/
 export const userPayByBalance = (data) => http.beforRqs('/weapp/Order/payByBalance', data, 'POST');
+/**
+ * 订单列表
+ **/
+export const orderList = (data) => http.beforRqs('/weapp/Package/lists', data,"POST");
+/**
+ * 订单详情
+ **/
+export const orderDetail = (data) => http.beforRqs('/weapp/Package/detail', data);
+/**
+ * 包裹退款
+ **/
+export const userBagReturn = (data) => http.beforRqs('/Api/Order/refund', data,"POST");

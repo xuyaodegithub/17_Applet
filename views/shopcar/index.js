@@ -47,9 +47,9 @@ Page({
     wx.showModal({
       title: '删除确认',
       content: '确认要删除此商品么？',
-      cancelColor: '9c9c9c',
+      cancelColor: '#9c9c9c',
       confirmColor: '#c2202d',
-      success(res) {
+      success:(res) =>{
         if (res.confirm) {
           shopDelete({
             id: list[idx].list[idxson].id
@@ -83,7 +83,7 @@ Page({
       wx.showModal({
         title: '删除确认',
         content: '确定要删除此规格么？',
-        cancelColor: '9c9c9c',
+        cancelColor: '#9c9c9c',
         confirmColor: '#c2202d',
         success:(res)=> {
           if (res.confirm) {
@@ -127,6 +127,7 @@ Page({
     list.map(item => {
       item.list = item.list.filter(item => item.sku_list.some(it => it.num > 0));
       item.list.map(itson => {
+        itson.sku_list=itson.sku_list.filter(it=>it.num>0)
         if (item.idList.includes(itson.id)) {
           allPrice += itson.sku_list.reduce((pre, it, idx) => (parseFloat(it.num) * parseFloat(itson.nowprice)) + pre, 0)
         }
@@ -165,6 +166,11 @@ Page({
     wx.setStorageSync('carIds',sItem.idList)
     wx.navigateTo({
       url: '/userViews/confirmationOrder/index',
+    })
+  },
+  goindex(){
+    wx.switchTab({
+      url: '/views/index/index',
     })
   },
   /**

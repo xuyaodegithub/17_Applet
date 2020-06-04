@@ -34,6 +34,10 @@ Component({
     confirm(e){
       const value=e.detail
       this.triggerEvent('confirm', value)
+    },
+    changeKeys(e){
+      const value=e.detail;
+      this.triggerEvent('confirm', value,1)
     }
   }
 })

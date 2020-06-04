@@ -14,7 +14,16 @@ Page({
   onLoad: function (options) {
 
   },
-
+  goindex() {
+    wx.switchTab({
+      url: '/views/index/index',
+    })
+   },
+  goOrderlist(){
+    wx.redirectTo({
+      url: '/userViews/orderList/index?type=2',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

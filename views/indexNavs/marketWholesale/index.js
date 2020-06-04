@@ -1,5 +1,7 @@
 const [http, app] = [require('../../../fetch/request.js'), getApp()];
-import { initmarket } from '../../../fetch/index.js';
+import {
+  initmarket
+} from '../../../fetch/index.js';
 // views/indexNavs/marketWholesale/index.js
 Page({
 
@@ -27,7 +29,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.initData()
   },
   taptabs(e) {
@@ -39,14 +41,14 @@ Page({
   },
   confirms(e) {
     console.log(e.detail)
-    this.setData({
-      page: 1,
-      keywords: e.detail.value
-    }, this.initData)
+    if (e.detail.cursor >= 0) this.setData({keywords: e.detail.value})
+    else this.setData({page: 1,keywords: e.detail.value}, this.initData)
   },
   toStore(e) {
     const id = e.currentTarget.dataset.id
-    console.log(id)
+    wx.navigateTo({
+      url: `../storeMarket/index?id=${id}`,
+    })
   },
   toDetail(e) {
     const id = e.currentTarget.dataset.id
@@ -56,10 +58,10 @@ Page({
   },
   initData() {
     let data = {
-        page: this.data.page,
-        sex_type: this.data.sex_type,
-        keywords: this.data.keywords,
-        city: this.data.sex_type ? 2 : 0
+      page: this.data.page,
+      sex_type: this.data.sex_type,
+      keywords: this.data.keywords,
+      city: this.data.sex_type ? 2 : 0
     }
     initmarket(data).then(res => {
       this.setData({
@@ -71,52 +73,52 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     if (!this.data.scrollLoading) return;
     this.setData({
       page: this.data.page + 1
-    },this.initData)
+    }, this.initData)
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })
