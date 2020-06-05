@@ -62,8 +62,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "userViews/orderList/index",
-					"pathName": "userViews/orderList/index",
+					"name": "views/indexNavs/specialChannel/index",
+					"pathName": "views/indexNavs/specialChannel/index",
 					"query": "id= 5054048",
 					"scene": null
 				}

@@ -1,0 +1,25 @@
+<view class="header">
+  <image src="https://17huo.oss-cn-hangzhou.aliyuncs.com/hx/activity/tejia_mobile.jpg" mode="widthFix"></image>
+</view>
+<view class="list">
+  <view class="item flex j-b" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="toDetail">
+    <view class="img">
+       <image src="{{item.headurl}}" mode="widthFix"></image>
+    </view>
+    <view class="right">
+        <view class="name over">{{item.name}}</view>
+        <view class="flex j-b">
+          <view class="radius">清仓价</view>
+          <view class="old">已抢{{item.sells_count}}件</view>
+        </view>
+        <view class="flex j-b a-i">
+          <view class="price">
+            <view class="rssd">￥{{item.price}}</view>
+            <view class="del_line">原价￥{{item.original_price}}</view>
+          </view>
+          <view class="btn">马上抢</view>
+        </view>
+    </view>
+  </view>
+</view>
+<van-divider contentPosition="center">{{loadingScroll ? '加载中...' : '已经到底啦！'}}</van-divider>

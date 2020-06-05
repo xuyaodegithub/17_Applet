@@ -35,8 +35,8 @@
     <view class="store over">{{item.marketname}}-{{item.sellername}}</view>
     <view class="price rd">￥{{item.price}}</view>
     <view class="flex"> 
-      <text>首单包邮</text>
-      <text>21元券</text>
+      <!-- <text>首单包邮</text> -->
+      <!-- <text>21元券</text> -->
       <text>一件代发</text>
     </view>
   </view>

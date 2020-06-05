@@ -11,3 +11,4 @@ export const shopDelete = (data) => http.beforRqs('/weapp/Cart/delete', data, 'P
 export const userShopSave = (data) => http.beforRqs('/weapp/Cart/save', data, 'POST'); //购物车修改数量
 export const storeProList = (data) => http.beforRqs('/weapp/Products/seller_products', data, 'POST'); //档口商品
 export const storeInfo = (data) => http.beforRqs('/weapp/Shops/detail', data, ); //档口信息
+export const tejiaList = (data) => http.beforRqs('/weapp/Tejia/search', data, ); //特价列表

@@ -14,22 +14,26 @@ Page({
     list: [],
     gridList: [{
         text: '女装',
-        img: 'http://m.17huo.com/public/images/i_nv.png',
+        img: '/images/women.png',
         url: '/views/indexNavs/womenWear/index'
       },
       {
         text: '男装',
-        img: 'http://m.17huo.com/public/images/i_nan.png',
+        img: '/images/men.png',
         url: '/views/indexNavs/menWear/index'
       },
       {
+        text: '特价清仓',
+        img: '/images/tejia.png',
+        url: '/views/indexNavs/specialChannel/index'
+      }, {
         text: '每日新款',
-        img: 'http://m.17huo.com/public/images/i_clock.png',
+        img: '/images/newDay.png',
         url: '/views/indexNavs/dayNew/index'
       },
       {
         text: '批发市场',
-        img: 'http://m.17huo.com/public/images/i_home.png',
+        img: '/images/market.png',
         url: '/views/indexNavs/marketWholesale/index'
       },
     ],
@@ -42,7 +46,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.initData();
     this.initVideoList();
     // console.log(this.route)
@@ -59,15 +63,15 @@ Page({
   },
   changes(e) {
     // console.log(e.detail.name, e.detail.title, this.data.active)
-    if (this.data.active === e.detail.name)return;
+    if (this.data.active === e.detail.name) return;
     wx.pageScrollTo({
-      scrollTop: 480,
+      scrollTop: 450,
     })
     this.setData({
       active: this.data.active,
       page: 1,
       scrollLoading: true,
-      active:e.detail.name
+      active: e.detail.name
     }, this.initData)
     // if (this.data.listTop > 0){
     //   this.setListTop()
@@ -86,7 +90,7 @@ Page({
     //     _self.setListTop()
     //   })
     // }
-  
+
   },
   initData() {
     const data = {
@@ -109,40 +113,40 @@ Page({
     })
   },
   setListTop() {
-  
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     this.setData({
       page: 1,
       active: 'newproducts'
@@ -156,7 +160,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     if (!this.data.scrollLoading) return;
     this.setData({
       page: this.data.page + 1
@@ -166,7 +170,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

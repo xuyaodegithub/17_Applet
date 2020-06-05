@@ -11,7 +11,7 @@ Page({
    */
   data: {
     tabList: [],
-    active: 'recommand',
+    active: 'newproducts',
     list: [],
     page:1,
     tabIds: ['0'],
@@ -31,7 +31,7 @@ Page({
       page:1,
       tabIds: [e.detail],
       scrollLoading: true,
-      active: 'recommand'
+      active: 'newproducts'
     }, this.initData)
   },
   changes(e) {

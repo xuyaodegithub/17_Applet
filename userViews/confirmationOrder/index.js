@@ -146,7 +146,7 @@ Page({
       wx.showModal({
         title: '交易密码设置？',
         content: '您还未设置交易密码，是否前往设置？',
-        cancelColor: '9c9c9c',
+        cancelColor: '#9c9c9c',
         confirmColor: '#c2202d',
         success: (res) => {
           if (res.confirm) {
@@ -210,7 +210,13 @@ Page({
             url: '../paySuccess/index',
           })
         },
-        fail(res) { },
+        fail(res) {
+          // console.log(res)
+          // wx.showToast({
+          //   title:res.errMsg,
+          //   icon:'none'
+          // })
+         },
         complete:()=>{
           this.setData({ loading: false })
         }

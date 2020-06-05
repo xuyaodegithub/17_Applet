@@ -1,0 +1,74 @@
+.header image{
+  display: block;
+  width: 100%;
+}
+.list{
+  padding: 0 30rpx;
+  position: relative;
+  top: -58rpx;
+}
+.list .item{
+    padding: 24rpx;
+    background-color: #fff;
+    font-size: 30rpx;
+    color: #333;
+    line-height: 1;
+    border-radius: 20rpx;
+    margin-bottom: 25rpx;
+}
+.item .img{
+  position: relative;
+  width: 260rpx;
+  height: 260rpx;
+  margin-right: 24rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.item .img image{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.item .right{
+  flex: 1;
+  min-width: 0;
+}
+.item .right .name{
+  line-height: 72rpx;
+  margin-bottom: 58rpx;
+}
+.right .radius{
+  line-height: 30rpx;
+  font-size: 24rpx;
+  color:#f72f6c ;
+  border: 1px solid #f72f6c;
+  border-radius: 15rpx 0 15rpx 0;
+  padding: 0 20rpx;
+  
+}
+.right .old{
+  font-size: 24rpx;
+  color: #9c9c9c;
+  padding: 0 20rpx;
+}
+.right .price{
+  font-size: 34rpx;
+  color: #f72f6c;
+}
+.right .price .rssd{
+  margin: 10rpx 0;
+}
+.right .price view:last-child{
+  font-size: 24rpx;
+  color: #9c9c9c;
+}
+.right .btn{
+  line-height: 62rpx;
+  font-size: 28rpx;
+  color: #fff;
+  padding: 0 30rpx;
+  background-color: rgb(231, 35, 37);
+  border-radius: 31rpx;
+}

@@ -14,7 +14,7 @@
     <text>一件起批</text>
   </view>
 </view>
-<van-grid column-num="4" border="{{ false }}" clickable>
+<van-grid column-num="5" border="{{ false }}" clickable>
   <van-grid-item use-slot wx:for="{{ gridList }}" url="{{item.url}}" wx:key="url">
     <image src="{{item.img}}" mode="widthFix" />
     <text>{{item.text}}</text>

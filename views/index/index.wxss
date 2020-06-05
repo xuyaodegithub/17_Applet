@@ -44,7 +44,7 @@ page {
 }
 
 .van-grid image {
-  width: 100rpx;
+  width: 60rpx;
   margin-bottom: 30rpx;
 }
 

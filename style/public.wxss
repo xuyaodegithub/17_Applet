@@ -63,3 +63,12 @@
   font-size: 22rpx;
   padding: 0 6rpx;
 }
+.down_line{
+  text-decoration:underline;
+}
+.top_line{
+  text-decoration:overline;
+}
+.del_line{
+  text-decoration:line-through;
+}

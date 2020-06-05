@@ -12,7 +12,8 @@
     "views/indexNavs/womenVideos/index",
     "views/detail/index",
     "views/indexNavs/storeMarket/index",
-    "views/indexNavs/seachList/index"
+    "views/indexNavs/seachList/index",
+    "views/indexNavs/specialChannel/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

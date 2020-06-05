@@ -39,9 +39,11 @@ Page({
     this.initData()
   },
   initHtml(val) {
+    const str=val.replace(/style/gi, "str")
     this.setData({
-      htmls: val.replace(/\<img/gi, "<img style='display:block;width:100%;'")
+      htmls: str.replace(/\<img/gi, "<img style='display:block;width:100%;'")
     })
+    // console.log(this.data.htmls)
   },
   onClose() {
     this.setData({

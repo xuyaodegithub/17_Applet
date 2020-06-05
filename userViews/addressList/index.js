@@ -46,13 +46,16 @@ Page({
     wx.showModal({
       title: '删除确认',
       content: '确认要删除此地址么？',
-      cancelColor: '9c9c9c',
+      cancelColor: '#9c9c9c',
       confirmColor: '#c2202d',
       success:(res)=> {
         if (res.confirm) {
           adressDele({
             id: item.id
           }).then(res => {
+            wx.showToast({
+              title: '删除成功',icon:'none'
+            })
             list.splice(idx, 1)
             this.setData({
               list

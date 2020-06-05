@@ -61,7 +61,7 @@ Page({
     wx.showModal({
       title: '取消确认',
       content: '确定要取消此订单么',
-      cancelColor: '9c9c9c',
+      cancelColor: '#9c9c9c',
       confirmColor: '#c2202d',
       success:(res) =>{
         if (res.confirm) {
@@ -99,7 +99,12 @@ Page({
             url: '../paySuccess/index',
           })
         },
-        fail(res) { },
+        fail(res) {
+          // wx.showToast({
+          //   title:res.errMsg,
+          //   icon:'none'
+          // })
+         },
         complete: () => {
         }
       })
