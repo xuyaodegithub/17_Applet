@@ -6,7 +6,7 @@
   <view class="s_item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="toStore">
     <view class="flex a-i j-b store">
       <view>
-        <view class="name">{{item.marketname}}</view>
+        <view class="name">{{item.marketname}}{{item.sellername}}</view>
         <text>{{item.cityname}}</text>
         <text>{{item.year}}年店</text>
       </view>
