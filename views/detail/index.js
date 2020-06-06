@@ -1,4 +1,5 @@
 const [http, app] = [require('../../fetch/request.js'), getApp()];
+const html_util=require('../../utils/html_util')
 import { proDetail, addShopcar } from '../../fetch/index.js';
 // views/detail/index.js
 Page({
@@ -112,6 +113,8 @@ Page({
         id: this.data.id
     }
     proDetail(data).then(res => {
+      var images = html_util.filterImageSrc(res.data.product.content);
+      console.log(images);
       this.setData({
         htmls: this.initHtml(res.data.product.content),
         banners: res.data.imgs,
