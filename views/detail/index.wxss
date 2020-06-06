@@ -12,6 +12,20 @@ page{
 .des .pricd {
   font-size: 46rpx;
   margin-bottom: 30rpx;
+  position: relative;
+}
+.pricd .down{
+  line-height: 36rpx;
+  font-size: 28rpx;
+  color: #9c9c9c;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pricd .down .van-icon{
+  padding-bottom: 4rpx;
+  border-bottom: 1px solid #9c9c9c;
 }
 
 .des .name {
@@ -109,6 +123,7 @@ page{
 .gItem .price{
   font-size: 32rpx;
 }
+
 .scroll-view_H{
   display: flex;
   align-items: center

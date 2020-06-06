@@ -25,7 +25,7 @@ Page({
     this.initTabs()
   },
   taptabs(e) {
-    console.log(e.detail)
+    // console.log(e.detail)
     this.setData({
       page: 1,
       tabIds: [e.detail],

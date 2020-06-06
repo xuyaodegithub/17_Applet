@@ -62,9 +62,9 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "views/indexNavs/specialChannel/index",
-					"pathName": "views/indexNavs/specialChannel/index",
-					"query": "id= 5054048",
+					"name": "views/detail/index",
+					"pathName": "views/detail/index",
+					"query": "id= 8507967",
 					"scene": null
 				}
 			]

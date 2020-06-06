@@ -13,7 +13,8 @@
     "views/detail/index",
     "views/indexNavs/storeMarket/index",
     "views/indexNavs/seachList/index",
-    "views/indexNavs/specialChannel/index"
+    "views/indexNavs/specialChannel/index",
+    "views/downPage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,8 @@
+<view wx:for="{{list}}" wx:key="name" class="item">
+    <view class="name">{{item.name}}</view>
+    <view class="flex f-w">
+      <view class="img" wx:for="{{item.list}}" wx:key="idx" data-idx="{{index}}" data-idxson="{{idx}}" wx:for-item="itemson" wx:for-index="idx">
+        <image src="itemson" mode="widthFix"></image>
+      </view>
+    </view>
+</view>
