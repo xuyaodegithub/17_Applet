@@ -206,17 +206,12 @@ Page({
         signType: 'HMAC-SHA256',
         paySign: relt.paySign,
         success(res) { 
+          this.setData({ loading: false })
           wx.redirectTo({
             url: '../paySuccess/index',
           })
         },
-        fail(res) {
-          // console.log(res)
-          // wx.showToast({
-          //   title:res.errMsg,
-          //   icon:'none'
-          // })
-         },
+        fail(res) {},
         complete:()=>{
           this.setData({ loading: false })
         }

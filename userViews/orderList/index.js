@@ -78,7 +78,7 @@ Page({
       content: '确定要取消此订单么',
       cancelColor: '#9c9c9c',
       confirmColor: '#c2202d',
-      success(res) {
+      success:(res)=> {
         if (res.confirm) {
           userBagReturn({
             package_id: id

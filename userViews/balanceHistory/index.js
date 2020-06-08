@@ -35,10 +35,11 @@ Page({
     })
   },
   nextScroll(){
-    if (finished)return;
+    console.log(this.data.finished)
+    if (this.data.finished)return;
     this.setData({
-      page:this.data.page+=1
-    }, this.userBagMoney)
+      page:this.data.page+1
+    }, this.initList)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

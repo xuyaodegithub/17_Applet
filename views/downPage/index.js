@@ -54,7 +54,7 @@ Page({
   },
   down() {
     const list = this.data.list;
-    let [imgs, video] = [list.filter(item => item.name !== 'video'), list.filter(item => item.name === 'video')[0].sList];
+    let [imgs, video] = [list.filter(item => item.name !== 'video'), list.filter(item => item.name === 'video').length > 0 ? list.filter(item => item.name === 'video')[0].sList : []];
     const allList = imgs.reduce((pre, item, idx) => [...pre, ...item.sList], [])
     if (allList.length < 1 && video.length < 1) {
       wx.showToast({

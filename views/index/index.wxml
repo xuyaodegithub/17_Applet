@@ -20,7 +20,7 @@
     <text>{{item.text}}</text>
   </van-grid-item>
 </van-grid>
-<!-- <van-grid column-num="2" clickable>
+<van-grid column-num="2" clickable wx:if="{{shortList.show}}">
   <van-grid-item use-slot url="/views/indexNavs/womenVideos/index">
     <view class="title bule}}">女装短视频
       <text>品牌 ></text>
@@ -43,7 +43,7 @@
       </view>
     </view>
   </van-grid-item>
-</van-grid> -->
+</van-grid>
 <van-sticky>
   <van-tabs active="{{active}}" sticky bind:click="changes" tab-active-class="tabActive te">
     <van-tab title="好货推荐" name="recommand"></van-tab>

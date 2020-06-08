@@ -23,10 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    userInfo().then(res=>{
-      app.userInfoData=res.data;
-      this.setData({ userInfo: res.data})
-    })
+   
   },
   ownAdress(){
     wx.getSetting({
@@ -55,11 +52,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // app.getUserInfo((info) => {
-    //   this.setData({
-    //     userInfo: info
-    //   })
-    // })
+    userInfo().then(res=>{
+      app.userInfoData=res.data;
+      this.setData({ userInfo: res.data})
+    })
   },
 
   /**
