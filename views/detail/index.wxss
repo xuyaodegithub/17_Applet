@@ -2,6 +2,7 @@
 page{
   overflow-x: hidden;
   width: 100%;
+  padding-bottom: 120rpx;
 }
 .des {
   padding: 40rpx 30rpx;
@@ -14,10 +15,10 @@ page{
   margin-bottom: 30rpx;
   position: relative;
 }
-.pricd .down{
+.pricd .down.flex{
   line-height: 36rpx;
   font-size: 28rpx;
-  color: #9c9c9c;
+  color: #ef4138;
   position: absolute;
   right: 0;
   top: 50%;
@@ -25,7 +26,7 @@ page{
 }
 .pricd .down .van-icon{
   padding-bottom: 4rpx;
-  border-bottom: 1px solid #9c9c9c;
+  border-bottom: 1px solid #ef4138;
 }
 
 .des .name {

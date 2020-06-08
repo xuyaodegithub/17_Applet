@@ -4,6 +4,7 @@ App({
   baseUrl: 'https://m.17huo.com',
   userInfoData: {},
   token:'',
+  downList:[],
   loginInfoCallback:[],
   getUserInfo(callback) {// 获取用户信息
     if (this.globalData.userInfo && callback) {

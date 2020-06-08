@@ -2,7 +2,7 @@
 <wxs src="../../filters/filters.wxs" module="filters" />
 <v-swiper banner="{{banners}}" videos="{{proInfo.video ? proInfo.video : ''}}" height="{{750}}"></v-swiper>
 <view class="des bc">
-  <view class="pricd rd">￥{{proInfo.nowprice}} <view class="down flex a-i"><van-icon name="down" size="24rpx" />下载主图</view></view>
+  <view class="pricd rd">￥{{proInfo.nowprice}} <view class="down flex a-i" bindtap="toDown"><van-icon name="down" size="24rpx" />下载主图</view></view>
   <view class="name van-multi-ellipsis--l2">{{proInfo.name}}</view>
   <view class="flex j-b">
     <text>{{proInfo.flag}}</text>

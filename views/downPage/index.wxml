@@ -1,8 +1,16 @@
+<wxs src="../../filters/filters.wxs" module="filter"></wxs>
 <view wx:for="{{list}}" wx:key="name" class="item">
-    <view class="name">{{item.name}}</view>
-    <view class="flex f-w">
-      <view class="img" wx:for="{{item.list}}" wx:key="idx" data-idx="{{index}}" data-idxson="{{idx}}" wx:for-item="itemson" wx:for-index="idx">
-        <image src="itemson" mode="widthFix"></image>
-      </view>
-    </view>
+	<view class="name flex a-i">
+		<van-icon name="{{item.sAll ? 'checked' : 'circle'}}" color="{{item.sAll ? '#C2202D' : ''}}" bindtap="selectShop" data-idx="{{index}}" size="38rpx" />
+		{{item.title}}<view wx:if="{{item.name!=='video'}}">（{{ item.list.length}}）</view></view>
+	<view class="flex f-w">
+		<view class="img" wx:for="{{item.list}}" wx:key="idx" data-idx="{{index}}" data-idxson="{{idx}}" wx:for-item="itemson" wx:for-index="idx" bindtap="selectItem">
+			<image src="{{item.name === 'video' ? videoImg : itemson}}" mode="widthFix"></image>
+      <view class="zheT" wx:if="{{filter.inclubse(item.sList,itemson)}}"></view>
+      <van-icon name="{{filter.inclubse(item.sList,itemson)  ? 'checked' : 'circle'}}" color="{{filter.inclubse(item.sList,itemson) ? '#C2202D' : '#fff'}}" size="38rpx" custom-class="{{filter.inclubse(item.sList,itemson)  ? 'active' : ''}}"/>
+		</view>
+	</view>
+</view>
+<view class="dbtn">
+   <van-button round type="info" block color="#ce2b31" bindtap="down">确定</van-button>
 </view>

@@ -65,7 +65,7 @@ Page({
     // console.log(e.detail.name, e.detail.title, this.data.active)
     if (this.data.active === e.detail.name) return;
     wx.pageScrollTo({
-      scrollTop: 450,
+      scrollTop: 300,
     })
     this.setData({
       active: this.data.active,

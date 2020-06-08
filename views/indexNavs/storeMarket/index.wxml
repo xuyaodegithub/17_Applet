@@ -4,7 +4,7 @@
   <text>{{storeInfo.year}}年店</text>
 </view>
 <view class="tab1 flex a-i">
-  <view class="item actives">推荐档口</view>
+  <view class="item actives">档口主推</view>
 </view>
 <card-list list="{{list}}"/>
 <van-divider contentPosition="center">{{loadingScroll ? '加载中...' : '已经到底啦！'}}</van-divider>

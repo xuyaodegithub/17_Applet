@@ -1,8 +1,71 @@
 page{
   padding: 30rpx;
+  width: auto;
+  padding-bottom: 120rpx;
+}
+.name{
+  font-size: 30rpx;
+  margin-bottom: 40rpx;
+}
+.name .van-icon{
+  margin-right: 20rpx;
 }
 .item{
   background-color: #fff;
   margin-bottom: 30rpx;
-  padding: 20rpx 30rpx;
+  padding: 30rpx 20rpx;
+  border-radius: 20rpx;
+}
+.item .img{
+  position: relative;
+  width: 140rpx;
+  height: 140rpx;
+  overflow: hidden;
+  margin:0 10rpx 10rpx 0;
+}
+.item .img:nth-child(4n){
+  margin-right: 0;
+}
+.item .img image{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.item .f-w{
+  padding-left: 50rpx;
+}
+.item .img .van-icon{
+  position: absolute;
+  top:10rpx;
+  right:10rpx;
+  background-color:rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  z-index: 99;
+  color: #fff;
+}
+.item .img .active{
+  background-color: #fff;
+}
+.item .img .zheT{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.dbtn{
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding:20rpx 0;
+}
+.dbtn .van-button{
+  width: 90%;
+  margin: 0 auto;
 }

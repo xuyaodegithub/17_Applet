@@ -113,8 +113,7 @@ Page({
         id: this.data.id
     }
     proDetail(data).then(res => {
-      var images = html_util.filterImageSrc(res.data.product.content);
-      console.log(images);
+      // var images = html_util.filterImageSrc(res.data.product.content);
       this.setData({
         htmls: this.initHtml(res.data.product.content),
         banners: res.data.imgs,
@@ -163,6 +162,17 @@ Page({
       }
     })
     console.log(this.data.commitInfo)
+  },
+  toDown(){
+      let data=[
+      {name:'imgs',list:this.data.banners,title:'主图下载'},
+      {name:'video',list:this.data.proInfo.video ? [this.data.proInfo.video] : [],title:'主视频下载'},
+      {name:'details',list:html_util.filterImageSrc(this.data.proInfo.content),title:'详情图下载'},
+      ]
+      app.downList=data
+      wx.navigateTo({
+        url: '../downPage/index',
+      })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
