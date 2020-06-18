@@ -1,7 +1,19 @@
 let http = require('./request.js')
-export const userLogin = (data) => http.beforRqs('/weapp/User/reportWxUserInfo', data); //登录
-export const userInfo = (data) => http.beforRqs('/weapp/User/info', data); //用户信息
-export const userBagMoney = (data) => http.beforRqs('/weapp/UserMoney/logs', data); //用户余额
+/**
+ * 登录
+ **/
+export const userLogin = (data) => http.beforRqs('/weapp/User/reportWxUserInfo', data);
+/**
+ * 用户信息
+ **/
+export const userInfo = (data) => http.beforRqs('/weapp/User/info', data); 
+/**
+ * 用户余额
+ **/
+export const userBagMoney = (data) => http.beforRqs('/weapp/UserMoney/logs', data); 
+/**
+ * 发送验证码
+ **/
 export const userSendSms = (data) => http.beforRqs('/weapp/User/send_sms_code', data);
 /**
  * 设置密码
